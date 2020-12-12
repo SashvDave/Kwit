@@ -46,7 +46,7 @@ class _Anger1State extends State<Anger1> {
                 ClipRRect(
                   borderRadius: BorderRadius.circular(20.0),
                   child: Image.asset(
-                    'lib/assets/peaceful.jpg',
+                    'assets/peaceful.jpg',
                     height: MediaQuery.of(context).size.height * 0.3,
                     width: MediaQuery.of(context).size.width * 0.8,
                   ),

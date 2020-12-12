@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-import 'anger1.dart';
+import 'anger.dart';
 
 void main() {
   runApp(MyApp());
@@ -39,21 +39,21 @@ class _MyHomePageState extends State<MyHomePage> {
               child: Text("Anger"),
               onPressed: () {
                 Navigator.push(
-                    context, MaterialPageRoute(builder: (context) => Anger1()));
+                    context, MaterialPageRoute(builder: (context) => Anger()));
               },
             ),
             RaisedButton(
               child: Text("Anger"),
               onPressed: () {
                 Navigator.push(
-                    context, MaterialPageRoute(builder: (context) => Anger1()));
+                    context, MaterialPageRoute(builder: (context) => Anger()));
               },
             ),
             RaisedButton(
               child: Text("Anger"),
               onPressed: () {
                 Navigator.push(
-                    context, MaterialPageRoute(builder: (context) => Anger1()));
+                    context, MaterialPageRoute(builder: (context) => Anger()));
               },
             ),
           ],

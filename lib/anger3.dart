@@ -86,6 +86,7 @@ class _Anger3State extends State<Anger3> {
                 child: IconButton(
                   icon: Icon(Icons.arrow_forward_ios),
                   onPressed: () {
+                    // _audioPlayer.stop();
                     Navigator.push(context,
                         MaterialPageRoute(builder: (context) => MyApp()));
                   },
