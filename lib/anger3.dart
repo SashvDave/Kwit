@@ -3,6 +3,7 @@ import './main.dart';
 import 'dart:io';
 import 'package:flutter/widgets.dart';
 import 'package:image_picker/image_picker.dart';
+import 'anger2.dart';
 
 class Anger3 extends StatefulWidget {
   @override
@@ -11,6 +12,10 @@ class Anger3 extends StatefulWidget {
 
 class _Anger3State extends State<Anger3> {
   File _imageFile;
+
+  void goBack() {
+    Navigator.push(context, MaterialPageRoute(builder: (context) => Anger2()));
+  }
 
   Future<void> _pickImage() async {
     File selected = await ImagePicker.pickImage(source: ImageSource.gallery);
@@ -81,19 +86,32 @@ class _Anger3State extends State<Anger3> {
                   ),
                 ),
               ),
-              Align(
-                alignment: Alignment.bottomRight,
-                child: IconButton(
-                  icon: Icon(Icons.arrow_forward_ios),
-                  onPressed: () {
-                    // _audioPlayer.stop();
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => MyApp()));
-                  },
-                  tooltip: "Go to next page",
-                  iconSize: MediaQuery.of(context).size.height * 0.05,
-                ),
-              )
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  Align(
+                    alignment: Alignment.bottomLeft,
+                    child: IconButton(
+                      icon: Icon(Icons.arrow_back_ios),
+                      onPressed: () => goBack(),
+                      tooltip: "Go to last page",
+                      iconSize: MediaQuery.of(context).size.height * 0.05,
+                    ),
+                  ),
+                  Align(
+                    alignment: Alignment.bottomRight,
+                    child: IconButton(
+                      icon: Icon(Icons.arrow_forward_ios),
+                      onPressed: () {
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) => MyApp()));
+                      },
+                      tooltip: "Go to next page",
+                      iconSize: MediaQuery.of(context).size.height * 0.05,
+                    ),
+                  ),
+                ],
+              ),
             ],
           ),
         ),

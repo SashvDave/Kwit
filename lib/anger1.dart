@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'anger2.dart';
+import 'anger.dart';
 
 class Anger1 extends StatefulWidget {
   @override
@@ -8,6 +9,11 @@ class Anger1 extends StatefulWidget {
 
 class _Anger1State extends State<Anger1> {
   final _textController = TextEditingController();
+
+  void goBack() {
+    Navigator.push(context, MaterialPageRoute(builder: (context) => Anger()));
+  }
+
   void _submitData() {
     final enteredText = _textController.text;
 
@@ -74,15 +80,29 @@ class _Anger1State extends State<Anger1> {
                     ),
                   ),
                 ),
-                Align(
-                  alignment: Alignment.bottomRight,
-                  child: IconButton(
-                    icon: Icon(Icons.arrow_forward_ios),
-                    onPressed: () => _submitData(),
-                    tooltip: "Go to next page",
-                    iconSize: MediaQuery.of(context).size.height * 0.05,
-                  ),
-                )
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    Align(
+                      alignment: Alignment.bottomLeft,
+                      child: IconButton(
+                        icon: Icon(Icons.arrow_back_ios),
+                        onPressed: () => goBack(),
+                        tooltip: "Go to last page",
+                        iconSize: MediaQuery.of(context).size.height * 0.05,
+                      ),
+                    ),
+                    Align(
+                      alignment: Alignment.bottomRight,
+                      child: IconButton(
+                        icon: Icon(Icons.arrow_forward_ios),
+                        onPressed: () => _submitData(),
+                        tooltip: "Go to next page",
+                        iconSize: MediaQuery.of(context).size.height * 0.05,
+                      ),
+                    ),
+                  ],
+                ),
               ],
             ),
           ),

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kwit/main.dart';
 import './anger1.dart';
 import 'package:audioplayers/audio_cache.dart';
 import 'package:audioplayers/audioplayers.dart';
@@ -22,6 +23,10 @@ class _AngerState extends State<Anger> {
   void initPlayer() {
     advancedPlayer = new AudioPlayer();
     audioCache = new AudioCache(fixedPlayer: advancedPlayer);
+  }
+
+  void goBack() {
+    Navigator.push(context, MaterialPageRoute(builder: (context) => MyApp()));
   }
 
   void _submitData() {
@@ -81,15 +86,29 @@ class _AngerState extends State<Anger> {
                     }
                   },
                 ),
-                Align(
-                  alignment: Alignment.bottomRight,
-                  child: IconButton(
-                    icon: Icon(Icons.arrow_forward_ios),
-                    onPressed: () => _submitData(),
-                    tooltip: "Go to next page",
-                    iconSize: MediaQuery.of(context).size.height * 0.05,
-                  ),
-                )
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    Align(
+                      alignment: Alignment.bottomLeft,
+                      child: IconButton(
+                        icon: Icon(Icons.arrow_back_ios),
+                        onPressed: () => goBack(),
+                        tooltip: "Go to last page",
+                        iconSize: MediaQuery.of(context).size.height * 0.05,
+                      ),
+                    ),
+                    Align(
+                      alignment: Alignment.bottomRight,
+                      child: IconButton(
+                        icon: Icon(Icons.arrow_forward_ios),
+                        onPressed: () => _submitData(),
+                        tooltip: "Go to next page",
+                        iconSize: MediaQuery.of(context).size.height * 0.05,
+                      ),
+                    ),
+                  ],
+                ),
               ],
             ),
           ),
