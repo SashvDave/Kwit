@@ -179,7 +179,9 @@ class Main extends State<sadScreen> {
                       padding: EdgeInsets.fromLTRB(0, 1, 0, 5),
                       child: RaisedButton.icon(
                         color: Colors.white38,
-                        onPressed: (){_launchURL('N+Abbott+Ave');}                      },
+                        onPressed: () {
+                          _launchURL('N+Abbott+Avenue');
+                        },
                         elevation: 10,
                         icon: Icon(
                           Icons.location_on_outlined,
