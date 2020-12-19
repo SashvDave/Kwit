@@ -79,7 +79,7 @@ class _AngerState extends State<Anger> {
                         isPlaying = false;
                       });
                     } else {
-                      audioCache.loop('OptimistByBorrtexArtlist.mp3');
+                      audioCache.play('Calm.mp3');
                       setState(() {
                         isPlaying = true;
                       });

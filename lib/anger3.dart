@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import './main.dart';
 import 'dart:io';
+import 'dart:async';
 import 'package:flutter/widgets.dart';
 import 'package:image_picker/image_picker.dart';
 import 'anger2.dart';
@@ -12,6 +13,38 @@ class Anger3 extends StatefulWidget {
 
 class _Anger3State extends State<Anger3> {
   File _imageFile;
+  final interval = const Duration(seconds: 1);
+  final int timerMaxSeconds = 73;
+  int currentSeconds = 0;
+
+  String get timerText =>
+      '${((timerMaxSeconds - currentSeconds) ~/ 60).toString().padLeft(2, '0')}: ${((timerMaxSeconds - currentSeconds) % 60).toString().padLeft(2, '0')}';
+
+  startTimeout([int milliseconds]) {
+    var duration = interval;
+    Timer.periodic(duration, (timer) {
+      setState(() {
+        print(timer.tick);
+        currentSeconds = timer.tick;
+        if (timer.tick >= timerMaxSeconds) {
+          timer.cancel();
+        }
+      });
+    });
+  }
+
+  void _submitData() {
+    if (timerText != "00: 00" || _imageFile == null) {
+      return;
+    } else {
+      Navigator.push(context, MaterialPageRoute(builder: (context) => MyApp()));
+    }
+  }
+
+  void initState() {
+    super.initState();
+    startTimeout();
+  }
 
   void goBack() {
     Navigator.push(context, MaterialPageRoute(builder: (context) => Anger2()));
@@ -43,6 +76,16 @@ class _Anger3State extends State<Anger3> {
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
+              Row(
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget>[
+                  Icon(Icons.timer),
+                  SizedBox(
+                    width: 5,
+                  ),
+                  Text(timerText)
+                ],
+              ),
               Padding(
                 padding: const EdgeInsets.fromLTRB(15.0, 15.0, 15.0, 35.0),
                 child: Text(
@@ -102,10 +145,7 @@ class _Anger3State extends State<Anger3> {
                     alignment: Alignment.bottomRight,
                     child: IconButton(
                       icon: Icon(Icons.arrow_forward_ios),
-                      onPressed: () {
-                        Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => MyApp()));
-                      },
+                      onPressed: () => _submitData(),
                       tooltip: "Go to next page",
                       iconSize: MediaQuery.of(context).size.height * 0.05,
                     ),

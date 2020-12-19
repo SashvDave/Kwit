@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'anger2.dart';
 import 'anger.dart';
+import 'dart:async';
 
 class Anger1 extends StatefulWidget {
   @override
@@ -9,6 +10,28 @@ class Anger1 extends StatefulWidget {
 
 class _Anger1State extends State<Anger1> {
   final _textController = TextEditingController();
+  final interval = const Duration(seconds: 1);
+  final int timerMaxSeconds = 73;
+  int currentSeconds = 0;
+
+  String get timerText =>
+      '${((timerMaxSeconds - currentSeconds) ~/ 60).toString().padLeft(2, '0')}: ${((timerMaxSeconds - currentSeconds) % 60).toString().padLeft(2, '0')}';
+
+  startTimeout([int milliseconds]) {
+    var duration = interval;
+    Timer.periodic(duration, (timer) {
+      setState(() {
+        print(timer.tick);
+        currentSeconds = timer.tick;
+        if (timer.tick >= timerMaxSeconds) timer.cancel();
+      });
+    });
+  }
+
+  void initState() {
+    super.initState();
+    startTimeout();
+  }
 
   void goBack() {
     Navigator.push(context, MaterialPageRoute(builder: (context) => Anger()));
@@ -17,7 +40,7 @@ class _Anger1State extends State<Anger1> {
   void _submitData() {
     final enteredText = _textController.text;
 
-    if (enteredText.isEmpty) {
+    if (timerText != "00: 00" || enteredText.isEmpty) {
       return;
     } else {
       Navigator.push(
@@ -44,6 +67,16 @@ class _Anger1State extends State<Anger1> {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
+                Row(
+                  mainAxisSize: MainAxisSize.min,
+                  children: <Widget>[
+                    Icon(Icons.timer),
+                    SizedBox(
+                      width: 5,
+                    ),
+                    Text(timerText)
+                  ],
+                ),
                 Padding(
                   padding: const EdgeInsets.all(15.0),
                   child: Text(
