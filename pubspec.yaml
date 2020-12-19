@@ -25,6 +25,8 @@ dependencies:
     sdk: flutter
   image_picker: 0.6.0+17
   audioplayers: ^0.17.0
+  http: 0.12.2
+  url_launcher: 5.7.10
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -50,6 +52,7 @@ flutter:
     - assets/peaceful.jpg
     - assets/sunset.png
     - assets/OptimistByBorrtexArtlist.mp3
+    - assets/biking.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
@@ -62,7 +65,10 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  # fonts:
+  fonts:
+    - family: SFMono
+    - fonts: 
+      - asset: lib/Fonts/SFMono-Light.otf
   #   - family: Schyler
   #     fonts:
   #       - asset: fonts/Schyler-Regular.ttf

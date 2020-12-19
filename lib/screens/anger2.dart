@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import './anger3.dart';
-import './anger1.dart';
+import 'anger3.dart';
+import 'anger1.dart';
 
 class Anger2 extends StatefulWidget {
   @override

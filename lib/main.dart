@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:kwit/screens/sad1.dart';
 
-import 'anger.dart';
+import 'screens/anger.dart';
 
 void main() {
   runApp(MyApp());
@@ -10,7 +11,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      debugShowCheckedModeBanner: false,
+      title: 'Kwit',
       theme: ThemeData(
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
@@ -54,6 +56,13 @@ class _MyHomePageState extends State<MyHomePage> {
               onPressed: () {
                 Navigator.push(
                     context, MaterialPageRoute(builder: (context) => Anger()));
+              },
+            ),
+            RaisedButton(
+              child: Text("Sadness Therapy"),
+              onPressed: () {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => sadScreen()));
               },
             ),
           ],
