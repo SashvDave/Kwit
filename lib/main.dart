@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:kwit/stress/stress.dart';
-
-import 'anger/anger.dart';
+import 'package:kwit/screens/stress.dart';
+import 'package:kwit/screens/anger.dart';
+import 'package:kwit/screens/sad1.dart';
 
 void main() {
   runApp(MyApp());
@@ -113,7 +113,7 @@ class _MyHomePageState extends State<MyHomePage> {
                   child: new InkWell(
                       onTap: () {
                         Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => Stress()));
+                            MaterialPageRoute(builder: (context) => sad1()));
                       },
                       child: Column(children: [
                         Padding(

@@ -23,8 +23,10 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  
-
+  image_picker: 0.6.0+17
+  audioplayers: ^0.17.0
+  http: 0.12.2
+  url_launcher: 5.7.10
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -33,28 +35,29 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  image_picker: 0.6.0+17
-  audioplayers: ^0.17.0
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
 # The following section is specific to Flutter.
 flutter:
-
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.
   uses-material-design: true
 
+  # To add assets to your application, add an assets section, like this:
   assets:
     - assets/waterdrop.jpg
     - assets/peaceful.jpg
     - assets/sunset.png
     - assets/OptimistByBorrtexArtlist.mp3
+    - assets/biking.jpg
     - assets/bg1.png
     - assets/happy.png
     - assets/stressbg.png
+    - assets/Calm.mp3
+    - assets/beachbg.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
@@ -67,7 +70,10 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  # fonts:
+  fonts:
+    - family: SFMono
+    - fonts:
+        - asset: lib/Fonts/SFMono-Light.otf
   #   - family: Schyler
   #     fonts:
   #       - asset: fonts/Schyler-Regular.ttf
