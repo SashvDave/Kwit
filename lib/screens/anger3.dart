@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import './main.dart';
+import '../main.dart';
 import 'dart:io';
 import 'dart:async';
 import 'package:flutter/widgets.dart';
