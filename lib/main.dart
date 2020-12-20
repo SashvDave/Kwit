@@ -50,7 +50,8 @@ class _MyHomePageState extends State<MyHomePage> {
             fit: BoxFit.cover,
           ),
         ),
-        child: Column(
+        child: SingleChildScrollView(
+          child: Column(
           children: <Widget>[
             new Container(
               alignment: Alignment.center,
@@ -196,6 +197,7 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
           ],
         ),
+        )
       ),
     );
   }

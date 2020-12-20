@@ -59,7 +59,8 @@ class _StressState extends State<Stress> {
             fit: BoxFit.cover,
           ),
         ),
-        child: Column(
+        child: SingleChildScrollView(
+          child: Column(
           children: <Widget>[
             Container(
                 height: 600,
@@ -81,8 +82,6 @@ class _StressState extends State<Stress> {
                             ),
                             child: Container(
                               height: MediaQuery.of(context).size.height * 0.15,
-                              padding:
-                                  EdgeInsets.only(top: 20, left: 20, right: 20),
                               child: Text(
                                 "Visualize yourself at a beach. Listen to the music and engage in productive activities",
                                 textAlign: TextAlign.center,
@@ -173,6 +172,7 @@ class _StressState extends State<Stress> {
             ),
           ],
         ),
+        )
       ),
     );
   }
