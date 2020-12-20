@@ -230,7 +230,10 @@ class Main extends State<sadScreen> {
                             sizeheight(buildContext) * 0.0),
                         child: IconButton(
                           onPressed: () {
-                            Navigator.pop(buildContext);
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => MyApp()));
                           },
                           icon: Icon(Icons.keyboard_arrow_left),
                           color: Colors.white54,
