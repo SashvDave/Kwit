@@ -40,7 +40,7 @@ class _Anger1State extends State<Anger1> {
   void _submitData() {
     final enteredText = _textController.text;
 
-    if (timerText != "00: 00" || enteredText.isEmpty) {
+    if (enteredText.isEmpty) {
       return;
     } else {
       Navigator.push(

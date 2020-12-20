@@ -34,7 +34,7 @@ class _Anger3State extends State<Anger3> {
   }
 
   void _submitData() {
-    if (timerText != "00: 00" || _imageFile == null) {
+    if (_imageFile == null) {
       return;
     } else {
       Navigator.push(context, MaterialPageRoute(builder: (context) => MyApp()));
