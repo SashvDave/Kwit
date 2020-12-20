@@ -35,7 +35,7 @@ class sadScreen extends StatefulWidget {
 
 class Main extends State<sadScreen> {
   void _launchURL(String uri) async {
-    String url = ("https://www.maps.apple.com/maps/search/" + uri) + "/";
+    String url = ("https://maps.apple.com/?address=" + uri) + "/";
     print(url);
     if (await canLaunch(url)) {
       await launch(url);
@@ -118,6 +118,9 @@ class Main extends State<sadScreen> {
 
   Widget build(BuildContext buildContext) {
     Size size = MediaQuery.of(buildContext).size;
+    double sizeheight(BuildContext context) =>
+        MediaQuery.of(context).size.height;
+    double sizewidth(BuildContext context) => MediaQuery.of(context).size.width;
     return Scaffold(
         body: new Stack(
       children: [
@@ -130,41 +133,52 @@ class Main extends State<sadScreen> {
           ),
         ),
         new Container(
-          margin: const EdgeInsets.fromLTRB(80, 150, 50, 0),
+          margin: EdgeInsets.fromLTRB(sizewidth(buildContext) * 0.21,
+              sizeheight(buildContext) * 0.26, 50, 0),
           child: new Text(
             "Go For A Ride",
+            textDirection: TextDirection.ltr,
             style: TextStyle(
-                color: Colors.black, fontSize: 37, fontFamily: ' SFMono'),
+                color: Colors.black,
+                fontSize: sizewidth(buildContext) * 0.094,
+                fontFamily: ' SFMono'),
           ),
         ),
         new Container(
-          margin: const EdgeInsets.fromLTRB(80, 220, 50, 0),
+          margin: EdgeInsets.fromLTRB(sizewidth(buildContext) * 0.21,
+              sizeheight(buildContext) * 0.35, 50, 0),
           child: new Text(
             "Cycling releases mind boosting chemicals which will uplift your mood.",
+            textDirection: TextDirection.ltr,
             style: TextStyle(
-                color: Colors.black45, fontSize: 21, fontFamily: ' SFMono'),
+                color: Colors.black45,
+                fontSize: sizewidth(buildContext) * 0.05,
+                fontFamily: ' SFMono'),
           ),
         ),
         Container(
-            height: 250,
+            height: size.height * 0.3,
             width: size.width,
-            margin: const EdgeInsets.fromLTRB(0, 650, 0, 0),
+            margin:
+                EdgeInsets.fromLTRB(0, sizeheight(buildContext) * 0.7, 0, 0),
             child: Card(
               elevation: 10,
               color: Colors.black,
-              margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
               clipBehavior: Clip.antiAlias,
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(40.0)),
               child: Column(
                 children: [
                   Padding(
-                      padding: EdgeInsets.fromLTRB(20, 10, 20, 5),
+                      padding: EdgeInsets.fromLTRB(
+                          20, sizeheight(buildContext) * 0.03, 20, 5),
                       child: new Center(
                           child: Icon(Icons.directions_bike_rounded,
-                              color: Colors.white38, size: 65))),
+                              color: Colors.white38,
+                              size: sizewidth(buildContext) * 0.13))),
                   Padding(
-                      padding: EdgeInsets.fromLTRB(20, 1, 20, 5),
+                      padding: EdgeInsets.fromLTRB(
+                          20, sizeheight(buildContext) * 0.01, 20, 5),
                       child: new Center(
                           child: Text(
                         "Try out this route",
@@ -174,13 +188,14 @@ class Main extends State<sadScreen> {
                             fontSize: 13),
                       ))),
                   Container(
-                      height: 50,
+                      height: sizeheight(buildContext) * 0.07,
                       width: size.width * 0.7,
-                      padding: EdgeInsets.fromLTRB(0, 1, 0, 5),
+                      padding: EdgeInsets.fromLTRB(
+                          0, sizeheight(buildContext) * 0.01, 0, 5),
                       child: RaisedButton.icon(
                         color: Colors.white38,
                         onPressed: () {
-                          _launchURL('N+Abbott+Ave');
+                          _launchURL('N%20Abbott%20Ave');
                         },
                         elevation: 10,
                         icon: Icon(
