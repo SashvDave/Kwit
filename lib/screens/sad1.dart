@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'package:kwit/main.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
@@ -157,7 +158,7 @@ class Main extends State<sadScreen> {
           ),
         ),
         Container(
-            height: size.height * 0.3,
+            height: size.height * 0.35,
             width: size.width,
             margin:
                 EdgeInsets.fromLTRB(0, sizeheight(buildContext) * 0.7, 0, 0),
@@ -174,7 +175,7 @@ class Main extends State<sadScreen> {
                           20, sizeheight(buildContext) * 0.03, 20, 5),
                       child: new Center(
                           child: Icon(Icons.directions_bike_rounded,
-                              color: Colors.white38,
+                              color: Colors.blueGrey[700],
                               size: sizewidth(buildContext) * 0.13))),
                   Padding(
                       padding: EdgeInsets.fromLTRB(
@@ -183,39 +184,79 @@ class Main extends State<sadScreen> {
                           child: Text(
                         "Try out this route",
                         style: TextStyle(
-                            color: Colors.white38,
+                            color: Colors.grey[700],
                             fontFamily: 'SFMono',
-                            fontSize: 13),
+                            fontSize: 14),
                       ))),
                   Container(
-                      height: sizeheight(buildContext) * 0.07,
-                      width: size.width * 0.7,
-                      padding: EdgeInsets.fromLTRB(
-                          0, sizeheight(buildContext) * 0.01, 0, 5),
-                      child: RaisedButton.icon(
-                        color: Colors.white38,
-                        onPressed: () {
-                          _launchURL('N%20Abbott%20Ave');
-                        },
-                        elevation: 10,
-                        icon: Icon(
-                          Icons.location_on_outlined,
-                          color: Colors.black87,
-                          size: 25,
+                    height: sizeheight(buildContext) * 0.07,
+                    width: size.width * 0.7,
+                    padding: EdgeInsets.fromLTRB(
+                        0, sizeheight(buildContext) * 0.01, 0, 5),
+                    child: RaisedButton.icon(
+                      color: Colors.blueGrey[600],
+                      onPressed: () {
+                        _launchURL('N%20Abbott%20Ave');
+                      },
+                      elevation: 10,
+                      icon: Icon(
+                        Icons.location_on_outlined,
+                        color: Colors.black87,
+                        size: 25,
+                      ),
+                      splashColor: Colors.black45,
+                      padding: const EdgeInsets.all(0.0),
+                      shape: RoundedRectangleBorder(
+                          borderRadius:
+                              BorderRadius.all(Radius.circular(30.0))),
+                      label: Text(
+                        "GO",
+                        style: TextStyle(
+                            color: Colors.black87,
+                            fontSize: 15,
+                            fontFamily: 'SFMono'),
+                      ),
+                    ),
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      Container(
+                        alignment: Alignment.bottomLeft,
+                        padding: EdgeInsets.fromLTRB(
+                            sizewidth(buildContext) * 0.01,
+                            0,
+                            0,
+                            sizeheight(buildContext) * 0.0),
+                        child: IconButton(
+                          onPressed: () {
+                            Navigator.pop(buildContext);
+                          },
+                          icon: Icon(Icons.keyboard_arrow_left),
+                          color: Colors.white54,
+                          iconSize: sizewidth(buildContext) * 0.13,
                         ),
-                        splashColor: Colors.black45,
-                        padding: const EdgeInsets.all(0.0),
-                        shape: RoundedRectangleBorder(
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(30.0))),
-                        label: Text(
-                          "GO",
-                          style: TextStyle(
-                              color: Colors.black87,
-                              fontSize: 15,
-                              fontFamily: 'SFMono'),
-                        ),
-                      ))
+                      ),
+                      Container(
+                          alignment: Alignment.bottomRight,
+                          padding: EdgeInsets.fromLTRB(
+                              0,
+                              0,
+                              sizewidth(buildContext) * 0.01,
+                              sizeheight(buildContext) * 0.0),
+                          child: IconButton(
+                            onPressed: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => sad1()));
+                            },
+                            icon: Icon(Icons.keyboard_arrow_right),
+                            color: Colors.white54,
+                            iconSize: sizewidth(buildContext) * 0.13,
+                          )),
+                    ],
+                  )
                 ],
               ),
             ))
