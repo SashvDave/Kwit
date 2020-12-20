@@ -3,7 +3,7 @@ description: A new Flutter project.
 
 # The following line prevents the package from being accidentally published to
 # pub.dev using `pub publish`. This is preferred for private packages.
-publish_to: "none" # Remove this line if you wish to publish to pub.dev
+publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 
 # The following defines the version and build number for your application.
 # A version number is three numbers separated by dots, like 1.2.43
@@ -51,8 +51,13 @@ flutter:
     - assets/waterdrop.jpg
     - assets/peaceful.jpg
     - assets/sunset.png
-    - assets/Calm.mp3
+    - assets/OptimistByBorrtexArtlist.mp3
     - assets/biking.jpg
+    - assets/bg1.png
+    - assets/happy.png
+    - assets/stressbg.png
+    - assets/Calm.mp3
+    - assets/beachbg.jpg
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'package:kwit/main.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
@@ -35,7 +36,7 @@ class sadScreen extends StatefulWidget {
 
 class Main extends State<sadScreen> {
   void _launchURL(String uri) async {
-    String url = ("https://www.maps.apple.com/maps/search/" + uri) + "/";
+    String url = ("https://maps.apple.com/?address=" + uri) + "/";
     print(url);
     if (await canLaunch(url)) {
       await launch(url);
@@ -118,6 +119,9 @@ class Main extends State<sadScreen> {
 
   Widget build(BuildContext buildContext) {
     Size size = MediaQuery.of(buildContext).size;
+    double sizeheight(BuildContext context) =>
+        MediaQuery.of(context).size.height;
+    double sizewidth(BuildContext context) => MediaQuery.of(context).size.width;
     return Scaffold(
         body: new Stack(
       children: [
@@ -130,77 +134,132 @@ class Main extends State<sadScreen> {
           ),
         ),
         new Container(
-          margin: const EdgeInsets.fromLTRB(80, 150, 50, 0),
+          margin: EdgeInsets.fromLTRB(sizewidth(buildContext) * 0.21,
+              sizeheight(buildContext) * 0.26, 50, 0),
           child: new Text(
             "Go For A Ride",
+            textDirection: TextDirection.ltr,
             style: TextStyle(
-                color: Colors.black, fontSize: 37, fontFamily: ' SFMono'),
+                color: Colors.black,
+                fontSize: sizewidth(buildContext) * 0.094,
+                fontFamily: ' SFMono'),
           ),
         ),
         new Container(
-          margin: const EdgeInsets.fromLTRB(80, 220, 50, 0),
+          margin: EdgeInsets.fromLTRB(sizewidth(buildContext) * 0.21,
+              sizeheight(buildContext) * 0.35, 50, 0),
           child: new Text(
             "Cycling releases mind boosting chemicals which will uplift your mood.",
+            textDirection: TextDirection.ltr,
             style: TextStyle(
-                color: Colors.black45, fontSize: 21, fontFamily: ' SFMono'),
+                color: Colors.black45,
+                fontSize: sizewidth(buildContext) * 0.05,
+                fontFamily: ' SFMono'),
           ),
         ),
         Container(
-            height: 250,
+            height: size.height * 0.35,
             width: size.width,
-            margin: const EdgeInsets.fromLTRB(0, 650, 0, 0),
+            margin:
+                EdgeInsets.fromLTRB(0, sizeheight(buildContext) * 0.7, 0, 0),
             child: Card(
               elevation: 10,
               color: Colors.black,
-              margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
               clipBehavior: Clip.antiAlias,
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(40.0)),
               child: Column(
                 children: [
                   Padding(
-                      padding: EdgeInsets.fromLTRB(20, 10, 20, 5),
+                      padding: EdgeInsets.fromLTRB(
+                          20, sizeheight(buildContext) * 0.03, 20, 5),
                       child: new Center(
                           child: Icon(Icons.directions_bike_rounded,
-                              color: Colors.white38, size: 65))),
+                              color: Colors.blueGrey[700],
+                              size: sizewidth(buildContext) * 0.13))),
                   Padding(
-                      padding: EdgeInsets.fromLTRB(20, 1, 20, 5),
+                      padding: EdgeInsets.fromLTRB(
+                          20, sizeheight(buildContext) * 0.01, 20, 5),
                       child: new Center(
                           child: Text(
                         "Try out this route",
                         style: TextStyle(
-                            color: Colors.white38,
+                            color: Colors.grey[700],
                             fontFamily: 'SFMono',
-                            fontSize: 13),
+                            fontSize: 14),
                       ))),
                   Container(
-                      height: 50,
-                      width: size.width * 0.7,
-                      padding: EdgeInsets.fromLTRB(0, 1, 0, 5),
-                      child: RaisedButton.icon(
-                        color: Colors.white38,
-                        onPressed: () {
-                          _launchURL('N+Abbott+Avenue');
-                        },
-                        elevation: 10,
-                        icon: Icon(
-                          Icons.location_on_outlined,
-                          color: Colors.black87,
-                          size: 25,
+                    height: sizeheight(buildContext) * 0.07,
+                    width: size.width * 0.7,
+                    padding: EdgeInsets.fromLTRB(
+                        0, sizeheight(buildContext) * 0.01, 0, 5),
+                    child: RaisedButton.icon(
+                      color: Colors.blueGrey[600],
+                      onPressed: () {
+                        _launchURL('N%20Abbott%20Ave');
+                      },
+                      elevation: 10,
+                      icon: Icon(
+                        Icons.location_on_outlined,
+                        color: Colors.black87,
+                        size: 25,
+                      ),
+                      splashColor: Colors.black45,
+                      padding: const EdgeInsets.all(0.0),
+                      shape: RoundedRectangleBorder(
+                          borderRadius:
+                              BorderRadius.all(Radius.circular(30.0))),
+                      label: Text(
+                        "GO",
+                        style: TextStyle(
+                            color: Colors.black87,
+                            fontSize: 15,
+                            fontFamily: 'SFMono'),
+                      ),
+                    ),
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      Container(
+                        alignment: Alignment.bottomLeft,
+                        padding: EdgeInsets.fromLTRB(
+                            sizewidth(buildContext) * 0.01,
+                            0,
+                            0,
+                            sizeheight(buildContext) * 0.0),
+                        child: IconButton(
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => MyApp()));
+                          },
+                          icon: Icon(Icons.keyboard_arrow_left),
+                          color: Colors.white54,
+                          iconSize: sizewidth(buildContext) * 0.13,
                         ),
-                        splashColor: Colors.black45,
-                        padding: const EdgeInsets.all(0.0),
-                        shape: RoundedRectangleBorder(
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(30.0))),
-                        label: Text(
-                          "GO",
-                          style: TextStyle(
-                              color: Colors.black87,
-                              fontSize: 15,
-                              fontFamily: 'SFMono'),
-                        ),
-                      ))
+                      ),
+                      Container(
+                          alignment: Alignment.bottomRight,
+                          padding: EdgeInsets.fromLTRB(
+                              0,
+                              0,
+                              sizewidth(buildContext) * 0.01,
+                              sizeheight(buildContext) * 0.0),
+                          child: IconButton(
+                            onPressed: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => sad1()));
+                            },
+                            icon: Icon(Icons.keyboard_arrow_right),
+                            color: Colors.white54,
+                            iconSize: sizewidth(buildContext) * 0.13,
+                          )),
+                    ],
+                  )
                 ],
               ),
             ))
