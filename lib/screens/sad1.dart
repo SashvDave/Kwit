@@ -4,7 +4,7 @@ import 'package:url_launcher/url_launcher.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'dart:ui';
-import 'dart:io';
+import 'dart:io' show Platform;
 
 import 'package:kwit/screens/anger1.dart';
 
@@ -35,8 +35,13 @@ class sadScreen extends StatefulWidget {
 }
 
 class Main extends State<sadScreen> {
-  void _launchURL(String uri) async {
-    String url = ("https://maps.apple.com/?address=" + uri) + "/";
+  void _launchURL(String uri_android, String uri_ios) async {
+    String url = "";
+    if (Platform.isIOS) {
+      url = ("https://maps.apple.com/?address=" + uri_ios) + "/";
+    } else {
+      url = ("https://www.google.com/maps/search/" + uri_android) + "/";
+    }
     print(url);
     if (await canLaunch(url)) {
       await launch(url);
@@ -196,7 +201,7 @@ class Main extends State<sadScreen> {
                     child: RaisedButton.icon(
                       color: Colors.blueGrey[600],
                       onPressed: () {
-                        _launchURL('N%20Abbott%20Ave');
+                        _launchURL('N%20Abbott%20Ave', 'N+Abbott+Ave');
                       },
                       elevation: 10,
                       icon: Icon(
