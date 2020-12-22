@@ -42,75 +42,67 @@ class _AngerState extends State<Anger> {
           padding: EdgeInsets.fromLTRB(
               0, MediaQuery.of(context).size.height * 0.1, 0, 0),
           height: MediaQuery.of(context).size.height,
-          child: Card(
-            shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(30.0),
-                    topRight: Radius.circular(30.0))),
-            color: Colors.red[100],
-            elevation: 5,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Padding(
-                  padding: const EdgeInsets.all(15.0),
-                  child: Text("Start your music below for this therapy!"),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Padding(
+                padding: const EdgeInsets.all(15.0),
+                child: Text("Start your music below for this therapy!"),
+              ),
+              ClipRRect(
+                borderRadius: BorderRadius.circular(40.0),
+                child: Image.asset(
+                  'assets/sunset.png',
+                  height: MediaQuery.of(context).size.height * 0.45,
+                  width: MediaQuery.of(context).size.width * 0.8,
                 ),
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(40.0),
-                  child: Image.asset(
-                    'assets/sunset.png',
-                    height: MediaQuery.of(context).size.height * 0.45,
-                    width: MediaQuery.of(context).size.width * 0.8,
-                  ),
+              ),
+              IconButton(
+                padding: EdgeInsets.all(0),
+                iconSize: 100,
+                icon: Icon(
+                  isPlaying ? Icons.pause : Icons.play_arrow,
+                  color: Colors.red[400],
                 ),
-                IconButton(
-                  padding: EdgeInsets.all(0),
-                  iconSize: 100,
-                  icon: Icon(
-                    isPlaying ? Icons.pause : Icons.play_arrow,
-                    color: Colors.red[400],
-                  ),
-                  onPressed: () {
-                    if (isPlaying) {
-                      advancedPlayer.pause();
+                onPressed: () {
+                  if (isPlaying) {
+                    advancedPlayer.pause();
 
-                      setState(() {
-                        isPlaying = false;
-                      });
-                    } else {
-                      audioCache.play('Calm.mp3');
-                      setState(() {
-                        isPlaying = true;
-                      });
-                    }
-                  },
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    Align(
-                      alignment: Alignment.bottomLeft,
-                      child: IconButton(
-                        icon: Icon(Icons.arrow_back_ios),
-                        onPressed: () => goBack(),
-                        tooltip: "Go to last page",
-                        iconSize: MediaQuery.of(context).size.height * 0.05,
-                      ),
+                    setState(() {
+                      isPlaying = false;
+                    });
+                  } else {
+                    audioCache.play('Calm.mp3');
+                    setState(() {
+                      isPlaying = true;
+                    });
+                  }
+                },
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  Align(
+                    alignment: Alignment.bottomLeft,
+                    child: IconButton(
+                      icon: Icon(Icons.arrow_back_ios),
+                      onPressed: () => goBack(),
+                      tooltip: "Go to last page",
+                      iconSize: MediaQuery.of(context).size.height * 0.05,
                     ),
-                    Align(
-                      alignment: Alignment.bottomRight,
-                      child: IconButton(
-                        icon: Icon(Icons.arrow_forward_ios),
-                        onPressed: () => _submitData(),
-                        tooltip: "Go to next page",
-                        iconSize: MediaQuery.of(context).size.height * 0.05,
-                      ),
+                  ),
+                  Align(
+                    alignment: Alignment.bottomRight,
+                    child: IconButton(
+                      icon: Icon(Icons.arrow_forward_ios),
+                      onPressed: () => _submitData(),
+                      tooltip: "Go to next page",
+                      iconSize: MediaQuery.of(context).size.height * 0.05,
                     ),
-                  ],
-                ),
-              ],
-            ),
+                  ),
+                ],
+              ),
+            ],
           ),
         ),
       ),

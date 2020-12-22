@@ -57,87 +57,79 @@ class _Anger1State extends State<Anger1> {
           padding: EdgeInsets.fromLTRB(
               0, MediaQuery.of(context).size.height * 0.1, 0, 0),
           height: MediaQuery.of(context).size.height,
-          child: Card(
-            shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.only(
-                    topLeft: Radius.circular(30.0),
-                    topRight: Radius.circular(30.0))),
-            color: Colors.red[100],
-            elevation: 5,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: <Widget>[
-                    Icon(Icons.timer),
-                    SizedBox(
-                      width: 5,
-                    ),
-                    Text(timerText)
-                  ],
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Row(
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget>[
+                  Icon(Icons.timer),
+                  SizedBox(
+                    width: 5,
+                  ),
+                  Text(timerText)
+                ],
+              ),
+              Padding(
+                padding: const EdgeInsets.all(15.0),
+                child: Text(
+                    "Think on whether your anger is justified or not and now write what you can do to prevent yourself from being angry in the future."),
+              ),
+              ClipRRect(
+                borderRadius: BorderRadius.circular(20.0),
+                child: Image.asset(
+                  'assets/peaceful.jpg',
+                  height: MediaQuery.of(context).size.height * 0.3,
+                  width: MediaQuery.of(context).size.width * 0.8,
                 ),
-                Padding(
+              ),
+              Container(
+                child: Padding(
                   padding: const EdgeInsets.all(15.0),
-                  child: Text(
-                      "Think on whether your anger is justified or not and now write what you can do to prevent yourself from being angry in the future."),
-                ),
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(20.0),
-                  child: Image.asset(
-                    'assets/peaceful.jpg',
-                    height: MediaQuery.of(context).size.height * 0.3,
-                    width: MediaQuery.of(context).size.width * 0.8,
+                  child: TextField(
+                    minLines: 5,
+                    maxLines: 15,
+                    decoration: InputDecoration(
+                      hintText: 'Enter answer here ...',
+                      filled: true,
+                      fillColor: Color(0xFFDBEDFF),
+                      enabledBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                        borderSide: BorderSide(color: Colors.black),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(10.0)),
+                        borderSide: BorderSide(color: Colors.black),
+                      ),
+                    ),
+                    controller: _textController,
                   ),
                 ),
-                Container(
-                  child: Padding(
-                    padding: const EdgeInsets.all(15.0),
-                    child: TextField(
-                      minLines: 5,
-                      maxLines: 15,
-                      decoration: InputDecoration(
-                        hintText: 'Enter answer here ...',
-                        filled: true,
-                        fillColor: Color(0xFFDBEDFF),
-                        enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                          borderSide: BorderSide(color: Colors.black),
-                        ),
-                        focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                          borderSide: BorderSide(color: Colors.black),
-                        ),
-                      ),
-                      controller: _textController,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  Align(
+                    alignment: Alignment.bottomLeft,
+                    child: IconButton(
+                      icon: Icon(Icons.arrow_back_ios),
+                      onPressed: () => goBack(),
+                      tooltip: "Go to last page",
+                      iconSize: MediaQuery.of(context).size.height * 0.05,
                     ),
                   ),
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: <Widget>[
-                    Align(
-                      alignment: Alignment.bottomLeft,
-                      child: IconButton(
-                        icon: Icon(Icons.arrow_back_ios),
-                        onPressed: () => goBack(),
-                        tooltip: "Go to last page",
-                        iconSize: MediaQuery.of(context).size.height * 0.05,
-                      ),
+                  Align(
+                    alignment: Alignment.bottomRight,
+                    child: IconButton(
+                      icon: Icon(Icons.arrow_forward_ios),
+                      onPressed: () => _submitData(),
+                      tooltip: "Go to next page",
+                      iconSize: MediaQuery.of(context).size.height * 0.05,
                     ),
-                    Align(
-                      alignment: Alignment.bottomRight,
-                      child: IconButton(
-                        icon: Icon(Icons.arrow_forward_ios),
-                        onPressed: () => _submitData(),
-                        tooltip: "Go to next page",
-                        iconSize: MediaQuery.of(context).size.height * 0.05,
-                      ),
-                    ),
-                  ],
-                ),
-              ],
-            ),
+                  ),
+                ],
+              ),
+            ],
           ),
         ),
       ),

@@ -4,6 +4,7 @@ import 'dart:io';
 import 'dart:async';
 import 'package:flutter/widgets.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:circular_countdown_timer/circular_countdown_timer.dart';
 import 'anger2.dart';
 
 class Anger3 extends StatefulWidget {
@@ -14,24 +15,7 @@ class Anger3 extends StatefulWidget {
 class _Anger3State extends State<Anger3> {
   File _imageFile;
   final interval = const Duration(seconds: 1);
-  final int timerMaxSeconds = 73;
-  int currentSeconds = 0;
-
-  String get timerText =>
-      '${((timerMaxSeconds - currentSeconds) ~/ 60).toString().padLeft(2, '0')}: ${((timerMaxSeconds - currentSeconds) % 60).toString().padLeft(2, '0')}';
-
-  startTimeout([int milliseconds]) {
-    var duration = interval;
-    Timer.periodic(duration, (timer) {
-      setState(() {
-        print(timer.tick);
-        currentSeconds = timer.tick;
-        if (timer.tick >= timerMaxSeconds) {
-          timer.cancel();
-        }
-      });
-    });
-  }
+  CountDownController _controller = CountDownController();
 
   void _submitData() {
     if (_imageFile == null) {
@@ -43,7 +27,6 @@ class _Anger3State extends State<Anger3> {
 
   void initState() {
     super.initState();
-    startTimeout();
   }
 
   void goBack() {
@@ -62,98 +45,134 @@ class _Anger3State extends State<Anger3> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Container(
-        color: Color(0xFFDBEDFF),
-        padding: EdgeInsets.fromLTRB(
-            0, MediaQuery.of(context).size.height * 0.1, 0, 0),
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment(0.8, -0.3),
+            colors: [const Color(0xff1e88e5), const Color(0xff9ccc65)],
+            tileMode: TileMode.repeated,
+          ),
+        ),
         height: MediaQuery.of(context).size.height,
-        child: Card(
-          shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.only(
-                  topLeft: Radius.circular(30.0),
-                  topRight: Radius.circular(30.0))),
-          color: Colors.red[100],
-          elevation: 5,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: <Widget>[
-              Row(
-                mainAxisSize: MainAxisSize.min,
-                children: <Widget>[
-                  Icon(Icons.timer),
-                  SizedBox(
-                    width: 5,
-                  ),
-                  Text(timerText)
-                ],
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+            Align(
+              alignment: Alignment.topLeft,
+              child: IconButton(
+                icon: Icon(
+                  Icons.keyboard_backspace,
+                  color: Colors.blue[600],
+                ),
+                onPressed: () => goBack(),
+                tooltip: "Go to last page",
+                iconSize: MediaQuery.of(context).size.height * 0.05,
               ),
-              Padding(
-                padding: const EdgeInsets.fromLTRB(15.0, 15.0, 15.0, 35.0),
-                child: Text(
-                    "Draw your emotions on a piece of paper and upload it to the app."),
+            ),
+            CircularCountDownTimer(
+              width: MediaQuery.of(context).size.width * 0.2,
+              height: MediaQuery.of(context).size.width * 0.2,
+              duration: 75,
+              fillColor: Colors.white,
+              color: Colors.greenAccent,
+              textStyle: TextStyle(
+                color: Colors.amber,
+                fontWeight: FontWeight.bold,
               ),
-              _imageFile != null
-                  ? ClipRRect(
-                      borderRadius: BorderRadius.circular(20.0),
-                      child: Container(
-                        color: Colors.red[400],
-                        child: SizedBox(
-                          child: Image.file(_imageFile),
-                          height: MediaQuery.of(context).size.height * 0.4,
-                          width: MediaQuery.of(context).size.width * 0.9,
-                        ),
-                      ),
-                    )
-                  : ClipRRect(
-                      borderRadius: BorderRadius.circular(20.0),
-                      child: Container(
-                        color: Colors.red[400],
-                        child: SizedBox(
-                          height: MediaQuery.of(context).size.height * 0.4,
-                          width: MediaQuery.of(context).size.width * 0.9,
+              isReverse: true,
+              isReverseAnimation: true,
+            ),
+            Padding(
+              padding: const EdgeInsets.fromLTRB(15.0, 15.0, 15.0, 0.0),
+              child: Container(
+                height: MediaQuery.of(context).size.height * 0.15,
+                width: MediaQuery.of(context).size.width * 0.7,
+                child: Column(
+                  children: [
+                    Text(
+                      "Draw your emotions",
+                      textAlign: TextAlign.center,
+                      style: TextStyle(
+                          color: Colors.amber,
+                          fontSize: 25,
+                          fontWeight: FontWeight.bold),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(0, 10, 0, 0.0),
+                      child: Text(
+                        "Upload an image to the app.",
+                        textAlign: TextAlign.center,
+                        style: TextStyle(
+                          color: Colors.black,
+                          fontSize: 15,
                         ),
                       ),
                     ),
-              Padding(
-                padding: const EdgeInsets.fromLTRB(0, 30.0, 0, 25.0),
-                child: RaisedButton(
-                  onPressed: () => _pickImage(),
-                  padding: EdgeInsets.all(10.0),
-                  textColor: Colors.white,
-                  color: Colors.red[400],
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10.0),
-                      side: BorderSide(color: Colors.red)),
-                  child: Text(
-                    'Upload image',
-                    style: TextStyle(fontSize: 20),
-                  ),
+                  ],
                 ),
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
-                  Align(
-                    alignment: Alignment.bottomLeft,
-                    child: IconButton(
-                      icon: Icon(Icons.arrow_back_ios),
-                      onPressed: () => goBack(),
-                      tooltip: "Go to last page",
-                      iconSize: MediaQuery.of(context).size.height * 0.05,
+            ),
+            _imageFile != null
+                ? ClipRRect(
+                    borderRadius: BorderRadius.circular(20.0),
+                    child: Container(
+                      color: Colors.blue[100],
+                      child: SizedBox(
+                        child: Image.file(_imageFile),
+                        height: MediaQuery.of(context).size.height * 0.4,
+                        width: MediaQuery.of(context).size.width * 0.9,
+                      ),
+                    ),
+                  )
+                : ClipRRect(
+                    borderRadius: BorderRadius.circular(20.0),
+                    child: Container(
+                      color: Colors.blue[100],
+                      child: SizedBox(
+                        child: Column(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Icon(
+                              Icons.camera_alt,
+                              size: 50,
+                            ),
+                            Text("No image uploaded")
+                          ],
+                        ),
+                        height: MediaQuery.of(context).size.height * 0.4,
+                        width: MediaQuery.of(context).size.width * 0.9,
+                      ),
                     ),
                   ),
-                  Align(
-                    alignment: Alignment.bottomRight,
-                    child: IconButton(
-                      icon: Icon(Icons.arrow_forward_ios),
-                      onPressed: () => _submitData(),
-                      tooltip: "Go to next page",
-                      iconSize: MediaQuery.of(context).size.height * 0.05,
-                    ),
-                  ),
-                ],
+            Padding(
+              padding: const EdgeInsets.fromLTRB(0, 30.0, 0, 5.0),
+              child: RaisedButton(
+                onPressed: () => _pickImage(),
+                padding: EdgeInsets.all(10.0),
+                textColor: Colors.black,
+                color: Colors.blue[100],
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(10.0),
+                    side: BorderSide(color: Colors.blue[50])),
+                child: Text(
+                  'Upload image',
+                  style: TextStyle(fontSize: 20),
+                ),
               ),
-            ],
-          ),
+            ),
+            Align(
+              alignment: Alignment.bottomRight,
+              child: IconButton(
+                icon: Icon(
+                  Icons.arrow_forward,
+                  color: Colors.lightGreenAccent,
+                ),
+                onPressed: () => _submitData(),
+                tooltip: "Go to next page",
+                iconSize: MediaQuery.of(context).size.height * 0.05,
+              ),
+            ),
+          ],
         ),
       ),
     );
