@@ -27,6 +27,7 @@ dependencies:
   audioplayers: ^0.17.0
   http: 0.12.2
   url_launcher: 5.7.10
+  flutter_svg: 
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -53,7 +54,11 @@ flutter:
     - assets/sunset.png
     - assets/OptimistByBorrtexArtlist.mp3
     - assets/biking.jpg
+    - assets/biking.webp
     - assets/bg1.png
+    - assets/bg2.png
+    - assets/bg20.png
+    - assets/bg15.png
     - assets/happy.png
     - assets/stressbg.png
     - assets/Calm.mp3
