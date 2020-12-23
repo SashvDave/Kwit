@@ -33,8 +33,9 @@ class sadScreen extends StatefulWidget {
 class Main extends State<sadScreen> {
   Widget build(BuildContext buildContext) {
     return Scaffold(
+        backgroundColor: Colors.lightBlue,
         body: new Stack(
-      children: [],
-    ));
+          children: [],
+        ));
   }
 }

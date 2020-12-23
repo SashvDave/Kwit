@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'dart:ui';
 import 'dart:io';
+import 'package:maze/maze.dart';
 
 import 'package:flutter/material.dart';
 
@@ -34,7 +35,26 @@ class Main extends State<sadScreen> {
   Widget build(BuildContext buildContext) {
     return Scaffold(
         body: new Stack(
-      children: [],
+      children: [
+        Maze(
+            player: MazeItem('assets/ecigarette.png', ImageType.asset),
+            columns: 6,
+            rows: 8,
+            wallThickness: 4.0,
+            wallColor: Colors.teal[400],
+            finish: MazeItem('assets/trashcan.png', ImageType.asset),
+            onFinish: () => {
+                  showDialog(
+                      context: buildContext,
+                      child: new Container(
+                        child: AlertDialog(
+                          backgroundColor: Colors.teal[300],
+                          title: new Text("Finish Line Reached!"),
+                          content: new Text("Want to play again?"),
+                        ),
+                      ))
+                }),
+      ],
     ));
   }
 }

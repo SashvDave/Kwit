@@ -1,5 +1,7 @@
 import 'dart:async';
 import 'package:kwit/main.dart';
+import 'package:kwit/screens/sad2.dart';
+import 'package:kwit/screens/sad3.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
@@ -257,7 +259,7 @@ class Main extends State<sadScreen> {
                               Navigator.push(
                                   context,
                                   MaterialPageRoute(
-                                      builder: (context) => sad1()));
+                                      builder: (context) => sad3()));
                             },
                             icon: Icon(Icons.keyboard_arrow_right),
                             color: Colors.white54,
