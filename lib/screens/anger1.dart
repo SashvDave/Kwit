@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'anger2.dart';
 import 'anger.dart';
-import 'dart:async';
+import 'package:circular_countdown_timer/circular_countdown_timer.dart';
 
 class Anger1 extends StatefulWidget {
   @override
@@ -10,27 +10,11 @@ class Anger1 extends StatefulWidget {
 
 class _Anger1State extends State<Anger1> {
   final _textController = TextEditingController();
+  CountDownController _controller = CountDownController();
   final interval = const Duration(seconds: 1);
-  final int timerMaxSeconds = 73;
-  int currentSeconds = 0;
-
-  String get timerText =>
-      '${((timerMaxSeconds - currentSeconds) ~/ 60).toString().padLeft(2, '0')}: ${((timerMaxSeconds - currentSeconds) % 60).toString().padLeft(2, '0')}';
-
-  startTimeout([int milliseconds]) {
-    var duration = interval;
-    Timer.periodic(duration, (timer) {
-      setState(() {
-        print(timer.tick);
-        currentSeconds = timer.tick;
-        if (timer.tick >= timerMaxSeconds) timer.cancel();
-      });
-    });
-  }
 
   void initState() {
     super.initState();
-    startTimeout();
   }
 
   void goBack() {
@@ -51,29 +35,56 @@ class _Anger1State extends State<Anger1> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text('Kwit: Anger Relief'),
+        actions: [
+          Padding(
+              padding: EdgeInsets.only(right: 20.0),
+              child: GestureDetector(
+                  onTap: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => Anger()));
+                  },
+                  child: Icon(Icons.portrait_rounded)))
+        ],
+      ),
       body: SingleChildScrollView(
         child: Container(
-          color: Color(0xFFDBEDFF),
-          padding: EdgeInsets.fromLTRB(
-              0, MediaQuery.of(context).size.height * 0.1, 0, 0),
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage(
+                'assets/bg7.png',
+              ),
+              fit: BoxFit.cover,
+            ),
+          ),
           height: MediaQuery.of(context).size.height,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
-              Row(
-                mainAxisSize: MainAxisSize.min,
-                children: <Widget>[
-                  Icon(Icons.timer),
-                  SizedBox(
-                    width: 5,
-                  ),
-                  Text(timerText)
-                ],
+              CircularCountDownTimer(
+                width: MediaQuery.of(context).size.width * 0.2,
+                height: MediaQuery.of(context).size.width * 0.2,
+                duration: 75,
+                fillColor: Colors.white,
+                color: Colors.greenAccent,
+                textStyle: TextStyle(
+                  color: Colors.amber,
+                  fontWeight: FontWeight.bold,
+                ),
+                isReverse: true,
+                isReverseAnimation: true,
               ),
               Padding(
                 padding: const EdgeInsets.all(15.0),
                 child: Text(
-                    "Think on whether your anger is justified or not and now write what you can do to prevent yourself from being angry in the future."),
+                  "Think on whether your anger is justified or not and now write what you can do to prevent yourself from being angry in the future.",
+                  textAlign: TextAlign.center,
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontWeight: FontWeight.w500,
+                      fontSize: 16.5),
+                ),
               ),
               ClipRRect(
                 borderRadius: BorderRadius.circular(20.0),
@@ -87,12 +98,14 @@ class _Anger1State extends State<Anger1> {
                 child: Padding(
                   padding: const EdgeInsets.all(15.0),
                   child: TextField(
+                    style: TextStyle(color: Colors.white),
                     minLines: 5,
                     maxLines: 15,
                     decoration: InputDecoration(
                       hintText: 'Enter answer here ...',
+                      hintStyle: TextStyle(color: Colors.white),
                       filled: true,
-                      fillColor: Color(0xFFDBEDFF),
+                      //fillColor: Colors.lightBlue[100],
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.all(Radius.circular(10.0)),
                         borderSide: BorderSide(color: Colors.black),
@@ -106,28 +119,20 @@ class _Anger1State extends State<Anger1> {
                   ),
                 ),
               ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
-                  Align(
-                    alignment: Alignment.bottomLeft,
-                    child: IconButton(
-                      icon: Icon(Icons.arrow_back_ios),
-                      onPressed: () => goBack(),
-                      tooltip: "Go to last page",
-                      iconSize: MediaQuery.of(context).size.height * 0.05,
-                    ),
-                  ),
-                  Align(
-                    alignment: Alignment.bottomRight,
-                    child: IconButton(
-                      icon: Icon(Icons.arrow_forward_ios),
-                      onPressed: () => _submitData(),
-                      tooltip: "Go to next page",
-                      iconSize: MediaQuery.of(context).size.height * 0.05,
-                    ),
-                  ),
-                ],
+              new Container(
+                margin: EdgeInsets.only(left: 10),
+                width: 400,
+                padding: EdgeInsets.all(10.0),
+                child: RaisedButton(
+                  onPressed: () => _submitData(),
+                  shape: RoundedRectangleBorder(
+                      borderRadius: BorderRadius.all(Radius.circular(30.0))),
+                  child: Text('Next',
+                      style: TextStyle(color: Colors.black, fontSize: 17)),
+                  padding: const EdgeInsets.all(13.0),
+                  splashColor: Colors.lightBlue[200],
+                  color: const Color(0xFFB8ECF0),
+                ),
               ),
             ],
           ),
