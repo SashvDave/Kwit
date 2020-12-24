@@ -100,8 +100,10 @@ class _Anger2State extends State<Anger2> {
                   child: TextField(
                     minLines: 5,
                     maxLines: 15,
+                    style: TextStyle(color: Colors.white),
                     decoration: InputDecoration(
                       hintText: 'Enter answer here ...',
+                      hintStyle: TextStyle(color: Colors.white),
                       filled: true,
                       //fillColor: Colors.white,
                       enabledBorder: OutlineInputBorder(
