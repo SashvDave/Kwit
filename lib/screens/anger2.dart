@@ -58,7 +58,6 @@ class _Anger2State extends State<Anger2> {
               fit: BoxFit.cover,
             ),
           ),
-          height: MediaQuery.of(context).size.height,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
@@ -108,11 +107,11 @@ class _Anger2State extends State<Anger2> {
                       //fillColor: Colors.white,
                       enabledBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                        borderSide: BorderSide(color: Colors.black),
+                        borderSide: BorderSide(color: Colors.white),
                       ),
                       focusedBorder: OutlineInputBorder(
                         borderRadius: BorderRadius.all(Radius.circular(10.0)),
-                        borderSide: BorderSide(color: Colors.black),
+                        borderSide: BorderSide(color: Colors.white),
                       ),
                     ),
                     controller: _textController,

@@ -68,7 +68,6 @@ class _Anger3State extends State<Anger3> {
               fit: BoxFit.cover,
             ),
           ),
-          height: MediaQuery.of(context).size.height,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
