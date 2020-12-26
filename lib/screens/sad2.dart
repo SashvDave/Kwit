@@ -90,16 +90,18 @@ class Main extends State<sadScreen> {
                       ),
                     ),
                   ),
-                  Center(
-                    child: new Padding(
-                      padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
-                      child: PDF.assets(
-                        'assets/comicbook.pdf',
-                        height: sizeheight(buildContext) * 0.5,
-                        width: sizewidth(buildContext) * 0.85,
+                  SingleChildScrollView(
+                      child: new Stack(
+                    children: [
+                      Container(
+                        child: PDF.assets(
+                          'assets/comicbook.pdf',
+                          height: sizeheight(buildContext) * 0.4,
+                          width: sizewidth(buildContext) * 0.85,
+                        ),
                       ),
-                    ),
-                  )
+                    ],
+                  ))
                 ],
               ),
             )),

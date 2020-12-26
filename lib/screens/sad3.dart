@@ -79,21 +79,29 @@ class Main extends State<sadScreen> {
                       ),
                     ),
                   ),
-                  Padding(
-                    padding: EdgeInsets.fromLTRB(
-                        sizewidth(buildContext) * 0.06,
-                        sizeheight(buildContext) * 0.02,
-                        sizewidth(buildContext) * 0.06,
-                        0),
-                    child: new Center(
-                      child: new Text(
-                        "Games help us train our brains to see the world as a series of challenges that can be overcome by working hard. Overcoming challenges can help train your brain to be optimistic and be happy! Try this game:",
-                        style: TextStyle(
-                            color: Colors.black38,
-                            fontFamily: 'SFMono',
-                            fontSize: sizewidth(buildContext) * 0.047),
-                      ),
-                    ),
+                  Container(
+                    child: SingleChildScrollView(
+                        scrollDirection: Axis.vertical,
+                        child: Column(
+                          children: <Widget>[
+                            Container(
+                              padding: EdgeInsets.fromLTRB(
+                                  sizewidth(buildContext) * 0.06,
+                                  sizeheight(buildContext) * 0.02,
+                                  sizewidth(buildContext) * 0.06,
+                                  0),
+                              child: new Center(
+                                child: new Text(
+                                  "Games help us train our brains to see the world as a series of challenges that can be overcome by working hard. Overcoming challenges can help train your brain to be optimistic and be happy! Try this game:",
+                                  style: TextStyle(
+                                      color: Colors.black38,
+                                      fontFamily: 'SFMono',
+                                      fontSize: sizewidth(buildContext) * 0.04),
+                                ),
+                              ),
+                            )
+                          ],
+                        )),
                   )
                 ],
               ),
