@@ -14,7 +14,6 @@ class _AngerState extends State<Anger> {
   AudioCache audioCache;
   bool isPlaying = false;
 
-  final _textController = TextEditingController();
   void initState() {
     super.initState();
     initPlayer();
@@ -62,7 +61,10 @@ class _AngerState extends State<Anger> {
             child: Column(
               children: <Widget>[
                 Container(
-                    margin: EdgeInsets.only(left: 35, right: 35, top: 10),
+                    margin: EdgeInsets.only(
+                        left: MediaQuery.of(context).size.width * 0.095,
+                        right: MediaQuery.of(context).size.width * 0.095,
+                        top: MediaQuery.of(context).size.height * 0.02),
                     child: new InkWell(
                       child: Card(
                         semanticContainer: true,
@@ -81,7 +83,12 @@ class _AngerState extends State<Anger> {
                                   height:
                                       MediaQuery.of(context).size.height * 0.17,
                                   padding: EdgeInsets.only(
-                                      top: 20, left: 20, right: 20),
+                                      top: MediaQuery.of(context).size.height *
+                                          0.04,
+                                      left: MediaQuery.of(context).size.width *
+                                          0.07,
+                                      right: MediaQuery.of(context).size.width *
+                                          0.07),
                                   child: Text(
                                     "Play the music to start your therapy",
                                     textAlign: TextAlign.center,
@@ -99,10 +106,14 @@ class _AngerState extends State<Anger> {
                                   fit: BoxFit.cover,
                                 ),
                               ),
-                              height: 220,
-                              width: 520,
+                              height: MediaQuery.of(context).size.height * 0.4,
+                              width: MediaQuery.of(context).size.width * 0.99,
                               child: Card(
-                                margin: EdgeInsets.only(right: 30, left: 30),
+                                margin: EdgeInsets.only(
+                                    right: MediaQuery.of(context).size.width *
+                                        0.085,
+                                    left: MediaQuery.of(context).size.width *
+                                        0.085),
                                 semanticContainer: true,
                                 clipBehavior: Clip.antiAliasWithSaveLayer,
                                 child: Image.asset(
@@ -126,7 +137,8 @@ class _AngerState extends State<Anger> {
                                   ),
                                 ),
                                 child: Container(
-                                  width: 750,
+                                  width:
+                                      MediaQuery.of(context).size.width * 0.8,
                                   child: IconButton(
                                     padding:
                                         EdgeInsets.only(top: 25, bottom: 15),
@@ -161,8 +173,11 @@ class _AngerState extends State<Anger> {
                       ),
                     )),
                 new Container(
-                  margin: EdgeInsets.only(top: 10, left: 10),
-                  width: 400,
+                  margin: EdgeInsets.only(
+                      top: MediaQuery.of(context).size.height * 0.02,
+                      left: MediaQuery.of(context).size.width * 0.01,
+                      right: MediaQuery.of(context).size.width * 0.01),
+                  width: MediaQuery.of(context).size.width * 0.98,
                   padding: EdgeInsets.all(10.0),
                   child: RaisedButton(
                     onPressed: () => _submitData(),
