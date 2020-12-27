@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kwit/main.dart';
+import 'package:kwit/screens/stress2.dart';
 import 'package:kwit/screens/widgets/category_card.dart';
 
 class Stress1 extends StatefulWidget {
@@ -50,8 +51,7 @@ class _Stress1State extends State<Stress1> {
                           .textTheme
                           // ignore: deprecated_member_use
                           .display1
-                          .copyWith(
-                              fontWeight: FontWeight.w900, color: Colors.white),
+                          .copyWith(color: Colors.white),
                     ),
                   ),
                   Container(
@@ -80,7 +80,30 @@ class _Stress1State extends State<Stress1> {
                         ],
                       ),
                     ),
-                  )
+                  ),
+                  new Container(
+                    margin: EdgeInsets.only(top: 10, left: 10),
+                    width: 400,
+                    padding: EdgeInsets.all(10.0),
+                    child: RaisedButton(
+                      onPressed: () {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(builder: (context) {
+                            return Stress2();
+                          }),
+                        );
+                      },
+                      shape: RoundedRectangleBorder(
+                          borderRadius:
+                              BorderRadius.all(Radius.circular(30.0))),
+                      child: Text('Next',
+                          style: TextStyle(color: Colors.black, fontSize: 17)),
+                      padding: const EdgeInsets.all(13.0),
+                      splashColor: Colors.lightBlue[200],
+                      color: const Color(0xFFB8ECF0),
+                    ),
+                  ),
                 ],
               ),
             ),

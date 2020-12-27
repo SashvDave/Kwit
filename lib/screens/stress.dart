@@ -47,7 +47,7 @@ class _StressState extends State<Stress> {
               child: GestureDetector(
                   onTap: () {
                     Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => Anger()));
+                        MaterialPageRoute(builder: (context) => MyHomePage()));
                   },
                   child: Icon(Icons.portrait_rounded)))
         ],

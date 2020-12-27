@@ -63,7 +63,12 @@ flutter:
     - assets/stressbg.png
     - assets/Calm.mp3
     - assets/beachbg.jpg
-
+    - assets/recipe1.jpeg
+    - assets/recipe2.jpeg
+    - assets/recipe3.jpeg
+    - assets/bgstress1.png
+    - assets/cardbg1.png
+    - assets/cardbg2.png
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
 
