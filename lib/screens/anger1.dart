@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kwit/main.dart';
 import 'anger2.dart';
 import 'anger.dart';
 import 'package:circular_countdown_timer/circular_countdown_timer.dart';
@@ -35,31 +36,31 @@ class _Anger1State extends State<Anger1> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: const Color(0xFF3BC3CD),
       appBar: AppBar(
-        title: Text('Kwit: Anger Relief'),
+        title: Text('Kwit: Stress Relief Exercise'),
         actions: [
           Padding(
               padding: EdgeInsets.only(right: 20.0),
               child: GestureDetector(
                   onTap: () {
                     Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => Anger()));
+                        MaterialPageRoute(builder: (context) => MyHomePage()));
                   },
                   child: Icon(Icons.portrait_rounded)))
         ],
       ),
-      body: SingleChildScrollView(
-        child: Container(
+      body: Stack(children: <Widget>[
+        Container(
           decoration: BoxDecoration(
             image: DecorationImage(
-              image: AssetImage(
-                'assets/bg7.png',
-              ),
+              image: AssetImage('assets/bg7.png'),
               fit: BoxFit.cover,
             ),
           ),
+        ),
+        SingleChildScrollView(
           child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
               CircularCountDownTimer(
                 width: MediaQuery.of(context).size.width * 0.2,
@@ -135,8 +136,8 @@ class _Anger1State extends State<Anger1> {
               ),
             ],
           ),
-        ),
-      ),
+        )
+      ]),
     );
   }
 }
