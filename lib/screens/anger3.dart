@@ -13,7 +13,6 @@ class Anger3 extends StatefulWidget {
 }
 
 class _Anger3State extends State<Anger3> {
-  final _textController = TextEditingController();
   File _imageFile;
   CountDownController _controller = CountDownController();
   final interval = const Duration(seconds: 1);
@@ -58,16 +57,16 @@ class _Anger3State extends State<Anger3> {
                   child: Icon(Icons.portrait_rounded)))
         ],
       ),
-      body: SingleChildScrollView(
-        child: Container(
-          decoration: BoxDecoration(
-            image: DecorationImage(
-              image: AssetImage(
-                'assets/bg9.png',
-              ),
-              fit: BoxFit.cover,
+      body: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage(
+              'assets/bg9.png',
             ),
+            fit: BoxFit.cover,
           ),
+        ),
+        child: SingleChildScrollView(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.center,
             children: <Widget>[
@@ -145,8 +144,10 @@ class _Anger3State extends State<Anger3> {
                 ),
               ),
               new Container(
-                margin: EdgeInsets.only(left: 10),
-                width: 400,
+                margin: EdgeInsets.only(
+                    left: MediaQuery.of(context).size.width * 0.01,
+                    right: MediaQuery.of(context).size.width * 0.01),
+                width: MediaQuery.of(context).size.width * 0.98,
                 padding: EdgeInsets.all(10.0),
                 child: RaisedButton(
                   onPressed: () => _submitData(),

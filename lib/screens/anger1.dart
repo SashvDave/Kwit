@@ -120,8 +120,10 @@ class _Anger1State extends State<Anger1> {
                 ),
               ),
               new Container(
-                margin: EdgeInsets.only(left: 10),
-                width: 400,
+                margin: EdgeInsets.only(
+                    left: MediaQuery.of(context).size.width * 0.01,
+                    right: MediaQuery.of(context).size.width * 0.01),
+                width: MediaQuery.of(context).size.width * 0.98,
                 padding: EdgeInsets.all(10.0),
                 child: RaisedButton(
                   onPressed: () => _submitData(),

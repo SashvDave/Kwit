@@ -14,7 +14,6 @@ class _AngerState extends State<Anger> {
   AudioCache audioCache;
   bool isPlaying = false;
 
-  final _textController = TextEditingController();
   void initState() {
     super.initState();
     initPlayer();
