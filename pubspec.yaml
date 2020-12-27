@@ -3,7 +3,7 @@ description: A new Flutter project.
 
 # The following line prevents the package from being accidentally published to
 # pub.dev using `pub publish`. This is preferred for private packages.
-publish_to: 'none' # Remove this line if you wish to publish to pub.dev
+publish_to: "none" # Remove this line if you wish to publish to pub.dev
 
 # The following defines the version and build number for your application.
 # A version number is three numbers separated by dots, like 1.2.43
@@ -23,11 +23,16 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
-  image_picker: 0.6.0+17
   audioplayers: ^0.17.0
   http: 0.12.2
-  url_launcher: 5.7.10
-  flutter_svg: 
+  url_launcher: 5.7.10 
+  circular_countdown_timer: ^0.0.8
+  maze: ^2.0.1
+  pdf_flutter: ^1.1.3
+  camera: ^0.5.7+2
+  image_picker: ^0.6.2+3
+  path_provider: ^1.6.24
+  gallery_saver: ^2.0.1
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
@@ -53,8 +58,10 @@ flutter:
     - assets/peaceful.jpg
     - assets/sunset.png
     - assets/OptimistByBorrtexArtlist.mp3
-    - assets/biking.jpg
-    - assets/biking.webp
+    - assets/sad1Wallpaper.png
+    - assets/sad2Wallpaper.png
+    - assets/sad3Wallpaper.png
+    - assets/videogameWallpaper.png
     - assets/bg1.png
     - assets/bg2.png
     - assets/bg20.png
@@ -69,6 +76,14 @@ flutter:
     - assets/bgstress1.png
     - assets/cardbg1.png
     - assets/cardbg2.png
+    - assets/ecigarette.png
+    - assets/trashcan.png
+    - assets/bg6.png
+    - assets/bg7.png
+    - assets/bg8.png
+    - assets/bg9.png
+    - assets/comicbook.pdf
+
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
 

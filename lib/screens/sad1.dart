@@ -1,9 +1,12 @@
 import 'dart:async';
+import 'package:kwit/main.dart';
+import 'package:kwit/screens/sad2.dart';
+import 'package:kwit/screens/sad3.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:http/http.dart' as http;
 import 'package:flutter/material.dart';
 import 'dart:ui';
-import 'dart:io';
+import 'dart:io' show Platform;
 
 import 'package:kwit/screens/anger1.dart';
 
@@ -34,86 +37,19 @@ class sadScreen extends StatefulWidget {
 }
 
 class Main extends State<sadScreen> {
-  void _launchURL(String uri) async {
-    String url = ("https://maps.apple.com/?address=" + uri) + "/";
+  void _launchURL(String uri_android, String uri_ios) async {
+    String url = "";
+    if (Platform.isIOS) {
+      url = ("https://maps.apple.com/?address=" + uri_ios) + "/";
+    } else {
+      url = ("https://www.google.com/maps/search/" + uri_android) + "/";
+    }
     print(url);
     if (await canLaunch(url)) {
       await launch(url);
     } else {
       throw 'Could not launch $url';
     }
-  }
-
-  Future<Widget> showCard(context) async {
-    Timer(Duration(seconds: 1), () {
-      showModalBottomSheet(
-          context: context,
-          builder: (BuildContext bc) {
-            Size size = MediaQuery.of(bc).size;
-            return Container(
-                height: 250,
-                width: size.width,
-                margin: const EdgeInsets.fromLTRB(0, 650, 0, 0),
-                child: Card(
-                  elevation: 10,
-                  color: Colors.black,
-                  margin: const EdgeInsets.fromLTRB(0, 0, 0, 0),
-                  clipBehavior: Clip.antiAlias,
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(40.0)),
-                  child: Column(
-                    children: [
-                      Padding(
-                          padding: EdgeInsets.fromLTRB(20, 10, 20, 5),
-                          child: new Center(
-                              child: Icon(Icons.directions_bike_rounded,
-                                  color: Colors.white38, size: 65))),
-                      Padding(
-                          padding: EdgeInsets.fromLTRB(20, 1, 20, 5),
-                          child: new Center(
-                              child: Text(
-                            "Try out this route",
-                            style: TextStyle(
-                                color: Colors.white38,
-                                fontFamily: 'SFMono',
-                                fontSize: 13),
-                          ))),
-                      Container(
-                          height: 50,
-                          width: size.width * 0.7,
-                          padding: EdgeInsets.fromLTRB(0, 1, 0, 5),
-                          child: RaisedButton.icon(
-                            color: Colors.white38,
-                            onPressed: () {
-                              Navigator.push(
-                                  context,
-                                  MaterialPageRoute(
-                                      builder: (context) => Anger1()));
-                            },
-                            elevation: 10,
-                            icon: Icon(
-                              Icons.location_on_outlined,
-                              color: Colors.black87,
-                              size: 25,
-                            ),
-                            splashColor: Colors.black45,
-                            padding: const EdgeInsets.all(0.0),
-                            shape: RoundedRectangleBorder(
-                                borderRadius:
-                                    BorderRadius.all(Radius.circular(30.0))),
-                            label: Text(
-                              "GO",
-                              style: TextStyle(
-                                  color: Colors.black87,
-                                  fontSize: 15,
-                                  fontFamily: 'SFMono'),
-                            ),
-                          ))
-                    ],
-                  ),
-                ));
-          });
-    });
   }
 
   Widget build(BuildContext buildContext) {
@@ -127,98 +63,125 @@ class Main extends State<sadScreen> {
         new Container(
           decoration: new BoxDecoration(
             image: new DecorationImage(
-              image: new AssetImage("assets/biking.jpg"),
+              image: new AssetImage("assets/sad1Wallpaper.png"),
               fit: BoxFit.cover,
             ),
           ),
         ),
         new Container(
-          margin: EdgeInsets.fromLTRB(sizewidth(buildContext) * 0.21,
-              sizeheight(buildContext) * 0.26, 50, 0),
-          child: new Text(
-            "Go For A Ride",
-            textDirection: TextDirection.ltr,
-            style: TextStyle(
-                color: Colors.black,
-                fontSize: sizewidth(buildContext) * 0.094,
-                fontFamily: ' SFMono'),
-          ),
-        ),
-        new Container(
-          margin: EdgeInsets.fromLTRB(sizewidth(buildContext) * 0.21,
-              sizeheight(buildContext) * 0.35, 50, 0),
-          child: new Text(
-            "Cycling releases mind boosting chemicals which will uplift your mood.",
-            textDirection: TextDirection.ltr,
-            style: TextStyle(
-                color: Colors.black45,
-                fontSize: sizewidth(buildContext) * 0.05,
-                fontFamily: ' SFMono'),
-          ),
-        ),
-        Container(
-            height: size.height * 0.3,
-            width: size.width,
-            margin:
-                EdgeInsets.fromLTRB(0, sizeheight(buildContext) * 0.7, 0, 0),
-            child: Card(
-              elevation: 10,
-              color: Colors.black,
+            height: sizeheight(buildContext) * 0.35,
+            width: size.width * 0.9,
+            margin: EdgeInsets.fromLTRB(
+                sizewidth(buildContext) * 0.1,
+                sizeheight(buildContext) * 0.32,
+                sizewidth(buildContext) * 0.1,
+                0),
+            child: new Card(
+              color: Colors.white60,
               clipBehavior: Clip.antiAlias,
               shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(40.0)),
-              child: Column(
+              child: new Column(
                 children: [
                   Padding(
-                      padding: EdgeInsets.fromLTRB(
-                          20, sizeheight(buildContext) * 0.03, 20, 5),
-                      child: new Center(
-                          child: Icon(Icons.directions_bike_rounded,
-                              color: Colors.white38,
-                              size: sizewidth(buildContext) * 0.13))),
-                  Padding(
-                      padding: EdgeInsets.fromLTRB(
-                          20, sizeheight(buildContext) * 0.01, 20, 5),
-                      child: new Center(
-                          child: Text(
-                        "Try out this route",
+                    padding: EdgeInsets.fromLTRB(
+                        0, sizeheight(buildContext) * 0.04, 0, 0),
+                    child: new Center(
+                      child: new Text(
+                        "Go For A Ride",
                         style: TextStyle(
-                            color: Colors.white38,
+                            color: Colors.black54,
                             fontFamily: 'SFMono',
-                            fontSize: 13),
-                      ))),
-                  Container(
-                      height: sizeheight(buildContext) * 0.07,
-                      width: size.width * 0.7,
-                      padding: EdgeInsets.fromLTRB(
-                          0, sizeheight(buildContext) * 0.01, 0, 5),
-                      child: RaisedButton.icon(
-                        color: Colors.white38,
-                        onPressed: () {
-                          _launchURL('N%20Abbott%20Ave');
-                        },
-                        elevation: 10,
-                        icon: Icon(
-                          Icons.location_on_outlined,
-                          color: Colors.black87,
-                          size: 25,
-                        ),
-                        splashColor: Colors.black45,
-                        padding: const EdgeInsets.all(0.0),
-                        shape: RoundedRectangleBorder(
-                            borderRadius:
-                                BorderRadius.all(Radius.circular(30.0))),
-                        label: Text(
-                          "GO",
-                          style: TextStyle(
-                              color: Colors.black87,
-                              fontSize: 15,
-                              fontFamily: 'SFMono'),
-                        ),
-                      ))
+                            fontSize: sizewidth(buildContext) * 0.074),
+                      ),
+                    ),
+                  ),
+                  Padding(
+                    padding: EdgeInsets.fromLTRB(
+                        sizewidth(buildContext) * 0.05,
+                        sizeheight(buildContext) * 0.04,
+                        sizewidth(buildContext) * 0.05,
+                        0),
+                    child: new Center(
+                      child: new Text(
+                        "Cycling releases mind boosting chemicals which will uplift your mood! Try this route:",
+                        style: TextStyle(
+                            color: Colors.black38,
+                            fontFamily: 'SFMono',
+                            fontSize: sizewidth(buildContext) * 0.065),
+                      ),
+                    ),
+                  )
                 ],
               ),
-            ))
+            )),
+        new Container(
+          color: Colors.transparent,
+          margin: EdgeInsets.fromLTRB(
+              sizewidth(buildContext) * 0.2,
+              sizeheight(buildContext) * 0.75,
+              sizewidth(buildContext) * 0.2,
+              0),
+          width: sizewidth(buildContext) * 0.6,
+          height: sizeheight(buildContext) * 0.065,
+          child: new RaisedButton.icon(
+            elevation: 10,
+            onPressed: () {
+              _launchURL('N%20Abbott%20Ave', 'N+Abbott+Ave');
+            },
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(25.0)),
+            splashColor: Colors.white30,
+            color: const Color(0xFFB8ECF0),
+            icon: Icon(
+              Icons.location_on,
+              color: Colors.black38,
+              size: sizewidth(buildContext) * 0.1,
+            ),
+            label: Text(
+              "GO",
+              style: TextStyle(
+                color: Colors.black38,
+                fontSize: sizewidth(buildContext) * 0.06,
+              ),
+            ),
+          ),
+        ),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            Container(
+              alignment: Alignment.bottomLeft,
+              padding: EdgeInsets.fromLTRB(sizewidth(buildContext) * 0.05, 0, 0,
+                  sizeheight(buildContext) * 0.05),
+              child: IconButton(
+                onPressed: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => MyApp()));
+                },
+                icon: Icon(Icons.keyboard_arrow_left),
+                color: Colors.white54,
+                iconSize: sizewidth(buildContext) * 0.13,
+              ),
+            ),
+            Container(
+                alignment: Alignment.bottomRight,
+                padding: EdgeInsets.fromLTRB(
+                    0,
+                    0,
+                    sizewidth(buildContext) * 0.05,
+                    sizeheight(buildContext) * 0.05),
+                child: IconButton(
+                  onPressed: () {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => sad2()));
+                  },
+                  icon: Icon(Icons.keyboard_arrow_right),
+                  color: Colors.white54,
+                  iconSize: sizewidth(buildContext) * 0.13,
+                )),
+          ],
+        )
       ],
     ));
   }
