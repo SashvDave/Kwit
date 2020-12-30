@@ -7,8 +7,9 @@ import 'package:kwit/screens/dashboard.dart';
 import 'package:kwit/screens/sad1.dart';
 import 'package:kwit/screens/sad2.dart';
 import 'login.dart';
-import 'package:url_launcher/url_launcher.dart';
+import 'package:url_launcher/url_launcher.dart' as UrlLauncher;
 import 'package:http/http.dart' as http;
+import 'dart:io' show Platform;
 
 void main() {
   runApp(Rehabs());
@@ -114,11 +115,16 @@ class _MyHomePageState extends State<clinics> {
     });
   }
 
-  void _launchURL(String uri) async {
-    String url = ("https://www.google.com/maps/search/" + uri) + "/";
+  void _launchURL(String uri_android, String uri_ios) async {
+    String url = "";
+    if (Platform.isIOS) {
+      url = ("https://maps.apple.com/?address=" + uri_ios) + "/";
+    } else {
+      url = ("https://www.google.com/maps/search/" + uri_android) + "/";
+    }
     print(url);
-    if (await canLaunch(url)) {
-      await launch(url);
+    if (await UrlLauncher.canLaunch(url)) {
+      await UrlLauncher.launch(url);
     } else {
       throw 'Could not launch $url';
     }
@@ -204,7 +210,7 @@ class _MyHomePageState extends State<clinics> {
                             child: ListTile(
                               title: new Center(
                                 child: Text(
-                                  "Milpitas Dental Center",
+                                  "Valley House Rehabilitation Center",
                                   style: TextStyle(color: Colors.black),
                                   textAlign: TextAlign.center,
                                 ),
@@ -217,7 +223,8 @@ class _MyHomePageState extends State<clinics> {
                               FlatButton(
                                 color: new Color(0x000000),
                                 onPressed: () {
-                                  _launchURL("995+County+Hwy+G4+STE+215");
+                                  _launchURL(
+                                      "991+Clyde+Ave", "991%20Clyde%20Ave");
                                 },
                                 child: new Icon(Icons.room,
                                     color: Colors.blueGrey[500]),
@@ -225,7 +232,7 @@ class _MyHomePageState extends State<clinics> {
                               FlatButton(
                                 color: new Color(0x000000),
                                 onPressed: () {
-                                  launch("tel://(408)263-6464");
+                                  UrlLauncher.launch("tel://4089887667");
                                 },
                                 child: new Icon(Icons.phone,
                                     color: Colors.blueGrey[500]),
@@ -246,7 +253,7 @@ class _MyHomePageState extends State<clinics> {
                             child: ListTile(
                               title: new Center(
                                 child: Text(
-                                  "Milpitas Town Center Dental Care",
+                                  "Restorative Rehabilitation",
                                   style: TextStyle(color: Colors.black),
                                   textAlign: TextAlign.center,
                                 ),
@@ -259,7 +266,8 @@ class _MyHomePageState extends State<clinics> {
                               FlatButton(
                                 color: new Color(0x000000),
                                 onPressed: () {
-                                  _launchURL("491+E+Calaveras+Blvd");
+                                  _launchURL("E+San+Fernando+St",
+                                      "E%20San%20Fernando%20St");
                                 },
                                 child: new Icon(Icons.room,
                                     color: Colors.blueGrey[500]),
@@ -267,7 +275,7 @@ class _MyHomePageState extends State<clinics> {
                               FlatButton(
                                 color: new Color(0x000000),
                                 onPressed: () {
-                                  launch("tel://(408)262-6608");
+                                  UrlLauncher.launch("tel://8336000622");
                                 },
                                 child: new Icon(Icons.phone,
                                     color: Colors.blueGrey[500]),
@@ -287,7 +295,7 @@ class _MyHomePageState extends State<clinics> {
                             child: ListTile(
                               title: new Center(
                                 child: Text(
-                                  "Brilliance Dental Care",
+                                  "Windsor Park Care",
                                   style: TextStyle(color: Colors.black),
                                   textAlign: TextAlign.center,
                                 ),
@@ -300,7 +308,8 @@ class _MyHomePageState extends State<clinics> {
                               FlatButton(
                                 color: new Color(0x000000),
                                 onPressed: () {
-                                  _launchURL("52+Skytop+St+suite+40");
+                                  _launchURL("2400+Parkside+Dr",
+                                      "2400%20Parkside%20Dr");
                                 },
                                 child: new Icon(Icons.room,
                                     color: Colors.blueGrey[500]),
@@ -308,7 +317,7 @@ class _MyHomePageState extends State<clinics> {
                               FlatButton(
                                 color: new Color(0x000000),
                                 onPressed: () {
-                                  launch("tel://(408)755-9800");
+                                  UrlLauncher.launch("tel://5107937222");
                                 },
                                 child: new Icon(Icons.phone,
                                     color: Colors.blueGrey[500]),
@@ -329,7 +338,7 @@ class _MyHomePageState extends State<clinics> {
                             child: ListTile(
                               title: new Center(
                                 child: Text(
-                                  "City Square Dental Care",
+                                  "California Department of Rehabilitation",
                                   style: TextStyle(color: Colors.black),
                                   textAlign: TextAlign.center,
                                 ),
@@ -342,7 +351,8 @@ class _MyHomePageState extends State<clinics> {
                               FlatButton(
                                 color: new Color(0x000000),
                                 onPressed: () {
-                                  _launchURL("1780+N+Milpitas+Blvd");
+                                  _launchURL("2160+Lundy+Ave+#115",
+                                      "2160%20Lundy%20Ave%20#115");
                                 },
                                 child: new Icon(Icons.room,
                                     color: Colors.blueGrey[500]),
@@ -350,7 +360,7 @@ class _MyHomePageState extends State<clinics> {
                               FlatButton(
                                 color: new Color(0x000000),
                                 onPressed: () {
-                                  launch("tel://(408)946-9234");
+                                  UrlLauncher.launch("tel://4082545750");
                                 },
                                 child: new Icon(Icons.phone,
                                     color: Colors.blueGrey[500]),
@@ -370,7 +380,7 @@ class _MyHomePageState extends State<clinics> {
                             child: ListTile(
                               title: new Center(
                                 child: Text(
-                                  "E Dental Care",
+                                  "Wellness Retreat Recovery Center",
                                   style: TextStyle(color: Colors.black),
                                   textAlign: TextAlign.center,
                                 ),
@@ -383,7 +393,8 @@ class _MyHomePageState extends State<clinics> {
                               FlatButton(
                                 color: new Color(0x000000),
                                 onPressed: () {
-                                  _launchURL("1156+Jacklin+Rd");
+                                  _launchURL("10615+Crothers+Rd",
+                                      "10615%20Crothers%20Rd");
                                 },
                                 child: new Icon(Icons.room,
                                     color: Colors.blueGrey[500]),
@@ -391,7 +402,7 @@ class _MyHomePageState extends State<clinics> {
                               FlatButton(
                                 color: new Color(0x000000),
                                 onPressed: () {
-                                  launch("tel://(408)719-8295");
+                                  UrlLauncher.launch("tel://4085396575");
                                 },
                                 child: new Icon(Icons.phone,
                                     color: Colors.blueGrey[500]),
