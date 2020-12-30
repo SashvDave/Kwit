@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:kwit/main.dart';
+import 'package:kwit/screens/dashboard.dart';
 import 'package:kwit/screens/stress2.dart';
 import 'package:kwit/screens/widgets/category_card.dart';
 
@@ -22,7 +22,7 @@ class _Stress1State extends State<Stress1> {
               child: GestureDetector(
                   onTap: () {
                     Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => MyHomePage()));
+                        MaterialPageRoute(builder: (context) => MyApp()));
                   },
                   child: Icon(Icons.portrait_rounded)))
         ],

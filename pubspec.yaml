@@ -86,6 +86,7 @@ flutter:
     - assets/bg8.png
     - assets/bg9.png
     - assets/comicbook.pdf
+    - assets/RehabG.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
