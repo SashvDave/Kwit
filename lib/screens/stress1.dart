@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:kwit/main.dart';
+import 'package:kwit/screens/stress.dart';
 import 'package:kwit/screens/stress2.dart';
 import 'package:kwit/screens/widgets/category_card.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'package:flutter_svg/svg.dart';
 
 class Stress1 extends StatefulWidget {
   @override
@@ -10,29 +13,18 @@ class Stress1 extends StatefulWidget {
 
 class _Stress1State extends State<Stress1> {
   @override
-  Widget build(BuildContext context) {
-    var size = MediaQuery.of(context)
-        .size; //this gonna give us total height and with of our device
+  Widget build(BuildContext buildContext) {
+    Size size = MediaQuery.of(buildContext).size;
+    double sizeheight(BuildContext context) =>
+        MediaQuery.of(context).size.height;
+    double sizewidth(BuildContext context) => MediaQuery.of(context).size.width;
     return Scaffold(
-      appBar: AppBar(
-        title: Text('Kwit: Stress Relief Exercise'),
-        actions: [
-          Padding(
-              padding: EdgeInsets.only(right: 20.0),
-              child: GestureDetector(
-                  onTap: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => MyHomePage()));
-                  },
-                  child: Icon(Icons.portrait_rounded)))
-        ],
-      ),
       body: Stack(
         children: <Widget>[
           Container(
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: AssetImage('assets/bg15.png'),
+                image: AssetImage('assets/bgstress1.png'),
                 fit: BoxFit.cover,
               ),
             ),
@@ -44,15 +36,14 @@ class _Stress1State extends State<Stress1> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: <Widget>[
                   Container(
-                    padding: EdgeInsets.only(top: 30),
+                    padding: EdgeInsets.only(top: 40),
                     child: Text(
-                      "The exercises below have been proven to release Stress & Anxiety",
-                      style: Theme.of(context)
-                          .textTheme
-                          // ignore: deprecated_member_use
-                          .display1
-                          .copyWith(color: Colors.white),
-                    ),
+                        "Exercising is a great method of releasing stress & anxiety!",
+                        style: Theme.of(context)
+                            .textTheme
+                            // ignore: deprecated_member_use
+                            .display1
+                            .copyWith(color: Colors.black)),
                   ),
                   Container(
                     child: Expanded(
@@ -65,45 +56,70 @@ class _Stress1State extends State<Stress1> {
                         children: <Widget>[
                           CategoryCard(
                             title: "Diet Recommendation",
+                            svgSrc: "assets/icons/hamburger.svg",
+                            press: () => launch(
+                                'https://www.ncbi.nlm.nih.gov/books/NBK235267/'),
                           ),
                           CategoryCard(
                             title: "Kegel Exercises",
+                            svgSrc: "assets/icons/exercise.svg",
+                            press: () => launch(
+                                'https://www.mayoclinic.org/healthy-lifestyle/mens-health/in-depth/kegel-exercises-for-men/art-20045074'),
                           ),
                           CategoryCard(
                             title: "Meditation",
-                            press: () {},
+                            svgSrc: "assets/icons/meditation.svg",
+                            press: () => launch(
+                                'https://www.mindful.org/how-to-meditate/'),
                           ),
                           CategoryCard(
                             title: "Yoga",
-                            press: () {},
+                            svgSrc: "assets/icons/yoga.svg",
+                            press: () =>
+                                launch('https://www.yogajournal.com/poses/'),
                           ),
                         ],
                       ),
                     ),
                   ),
-                  new Container(
-                    margin: EdgeInsets.only(top: 10, left: 10),
-                    width: 400,
-                    padding: EdgeInsets.all(10.0),
-                    child: RaisedButton(
-                      onPressed: () {
-                        Navigator.push(
-                          context,
-                          MaterialPageRoute(builder: (context) {
-                            return Stress2();
-                          }),
-                        );
-                      },
-                      shape: RoundedRectangleBorder(
-                          borderRadius:
-                              BorderRadius.all(Radius.circular(30.0))),
-                      child: Text('Next',
-                          style: TextStyle(color: Colors.black, fontSize: 17)),
-                      padding: const EdgeInsets.all(13.0),
-                      splashColor: Colors.lightBlue[200],
-                      color: const Color(0xFFB8ECF0),
-                    ),
-                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      Container(
+                        alignment: Alignment.bottomLeft,
+                        margin: EdgeInsets.only(
+                            bottom: MediaQuery.of(context).size.height * 0.08,
+                            left: MediaQuery.of(context).size.height * 0.03),
+                        child: IconButton(
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => Stress()));
+                          },
+                          icon: Icon(Icons.keyboard_arrow_left),
+                          color: Colors.black,
+                          iconSize: sizewidth(buildContext) * 0.13,
+                        ),
+                      ),
+                      Container(
+                          alignment: Alignment.bottomRight,
+                          margin: EdgeInsets.only(
+                              bottom: MediaQuery.of(context).size.height * 0.08,
+                              right: MediaQuery.of(context).size.height * 0.03),
+                          child: IconButton(
+                            onPressed: () {
+                              Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => Stress2()));
+                            },
+                            icon: Icon(Icons.keyboard_arrow_right),
+                            color: Colors.black,
+                            iconSize: sizewidth(buildContext) * 0.13,
+                          )),
+                    ],
+                  )
                 ],
               ),
             ),

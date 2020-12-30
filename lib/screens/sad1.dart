@@ -10,7 +10,7 @@ import 'dart:io' show Platform;
 
 import 'package:kwit/screens/anger1.dart';
 
-void ain() {
+void main() {
   runApp(sad1());
 }
 

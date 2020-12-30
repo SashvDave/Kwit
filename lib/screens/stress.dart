@@ -3,7 +3,9 @@ import 'package:kwit/screens/anger.dart';
 import 'package:kwit/main.dart';
 import 'package:audioplayers/audio_cache.dart';
 import 'package:audioplayers/audioplayers.dart';
+import 'package:kwit/screens/sad2.dart';
 import 'package:kwit/screens/stress1.dart';
+import 'package:kwit/screens/stress2.dart';
 import 'anger1.dart';
 
 class Stress extends StatefulWidget {
@@ -36,27 +38,18 @@ class _StressState extends State<Stress> {
   }
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext buildContext) {
+    Size size = MediaQuery.of(buildContext).size;
+    double sizeheight(BuildContext context) =>
+        MediaQuery.of(context).size.height;
+    double sizewidth(BuildContext context) => MediaQuery.of(context).size.width;
     return Scaffold(
       backgroundColor: const Color(0xFF3BC3CD),
-      appBar: AppBar(
-        title: Text('Kwit: Stress Relief Exercise'),
-        actions: [
-          Padding(
-              padding: EdgeInsets.only(right: 20.0),
-              child: GestureDetector(
-                  onTap: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => MyHomePage()));
-                  },
-                  child: Icon(Icons.portrait_rounded)))
-        ],
-      ),
       body: Stack(children: <Widget>[
         Container(
           decoration: BoxDecoration(
             image: DecorationImage(
-              image: AssetImage('assets/bg20.png'),
+              image: AssetImage('assets/bgstress.png'),
               fit: BoxFit.cover,
             ),
           ),
@@ -65,7 +58,7 @@ class _StressState extends State<Stress> {
           child: Column(
             children: <Widget>[
               Container(
-                  margin: EdgeInsets.only(left: 35, right: 35, top: 50),
+                  margin: EdgeInsets.only(left: 35, right: 35, top: 100),
                   child: new InkWell(
                     child: Card(
                       semanticContainer: true,
@@ -75,14 +68,14 @@ class _StressState extends State<Stress> {
                           Container(
                               decoration: BoxDecoration(
                                 image: DecorationImage(
-                                  image: AssetImage("assets/happy.png"),
+                                  image: AssetImage("assets/cardbg4.png"),
                                   fit: BoxFit.fitWidth,
                                   alignment: Alignment.topCenter,
                                 ),
                               ),
                               child: Container(
                                 height:
-                                    MediaQuery.of(context).size.height * 0.17,
+                                    MediaQuery.of(context).size.height * 0.2,
                                 padding: EdgeInsets.only(
                                     top: 20, left: 20, right: 20),
                                 child: Text(
@@ -91,14 +84,14 @@ class _StressState extends State<Stress> {
                                   style: TextStyle(
                                       color: Colors.black,
                                       fontWeight: FontWeight.w500,
-                                      fontSize: 18),
+                                      fontSize: 22),
                                 ),
                               )),
                           Container(
                             decoration: BoxDecoration(
                               color: const Color(0xFFFFFFF),
                               image: DecorationImage(
-                                image: AssetImage('assets/happy.png'),
+                                image: AssetImage('assets/cardbg4.png'),
                                 fit: BoxFit.cover,
                               ),
                             ),
@@ -127,7 +120,7 @@ class _StressState extends State<Stress> {
                                 color: const Color(0xFFFFFFF),
                                 image: DecorationImage(
                                   image: AssetImage(
-                                    'assets/happy.png',
+                                    'assets/cardbg4.png',
                                   ),
                                   fit: BoxFit.cover,
                                 ),
@@ -135,11 +128,11 @@ class _StressState extends State<Stress> {
                               child: Container(
                                 width: 750,
                                 child: IconButton(
-                                  padding: EdgeInsets.only(top: 25, bottom: 15),
+                                  padding: EdgeInsets.only(top: 35, bottom: 15),
                                   iconSize: 100,
                                   icon: Icon(
                                     isPlaying ? Icons.pause : Icons.play_arrow,
-                                    color: const Color(0xFF4FCB79),
+                                    color: const Color(0xFF2D40A4),
                                   ),
                                   onPressed: () {
                                     if (isPlaying) {
@@ -164,28 +157,42 @@ class _StressState extends State<Stress> {
                       elevation: 10,
                     ),
                   )),
-              new Container(
-                margin: EdgeInsets.only(top: 10, left: 10),
-                width: 400,
-                padding: EdgeInsets.all(10.0),
-                child: RaisedButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(builder: (context) {
-                        return Stress1();
-                      }),
-                    );
-                  },
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(30.0))),
-                  child: Text('Next',
-                      style: TextStyle(color: Colors.black, fontSize: 17)),
-                  padding: const EdgeInsets.all(13.0),
-                  splashColor: Colors.lightBlue[200],
-                  color: const Color(0xFFB8ECF0),
-                ),
-              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  Container(
+                    alignment: Alignment.bottomLeft,
+                    margin: EdgeInsets.only(
+                        top: MediaQuery.of(context).size.height * 0.05,
+                        left: MediaQuery.of(context).size.height * 0.03),
+                    child: IconButton(
+                      onPressed: () {
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) => MyApp()));
+                      },
+                      icon: Icon(Icons.keyboard_arrow_left),
+                      color: Colors.black,
+                      iconSize: sizewidth(buildContext) * 0.13,
+                    ),
+                  ),
+                  Container(
+                      alignment: Alignment.bottomRight,
+                      margin: EdgeInsets.only(
+                          top: MediaQuery.of(context).size.height * 0.05,
+                          right: MediaQuery.of(context).size.height * 0.03),
+                      child: IconButton(
+                        onPressed: () {
+                          Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => Stress1()));
+                        },
+                        icon: Icon(Icons.keyboard_arrow_right),
+                        color: Colors.black,
+                        iconSize: sizewidth(buildContext) * 0.13,
+                      )),
+                ],
+              )
             ],
           ),
         )
