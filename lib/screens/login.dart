@@ -95,9 +95,9 @@ class LoginScreen extends State<login> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Positioned(
-              top: 10,
-              child: Image.asset("lib/Screens/assets/smallLogo.gif",
-                  width: size.width * 1),
+              top: 100,
+              child: Image.asset("lib/Screens/assets/happy.png",
+                  height: size.height * 0.2),
             ),
             new Container(
               margin: EdgeInsets.only(top: 50, bottom: 0, left: 10, right: 10),
