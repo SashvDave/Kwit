@@ -84,9 +84,9 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.blueGrey[700],
+      backgroundColor: const Color(0xFF235866),
       appBar: AppBar(
-        backgroundColor: Colors.blueGrey[700],
+        backgroundColor: const Color(0xFF235866),
         title: Text('Kwit: Emotion Relief'),
         actions: [
           Padding(
@@ -102,7 +102,7 @@ class _MyHomePageState extends State<MyHomePage> {
       bottomNavigationBar: BottomNavigationBar(
         selectedItemColor: Colors.tealAccent,
         unselectedItemColor: Colors.white60,
-        backgroundColor: Colors.blueGrey[800],
+        backgroundColor: const Color(0xFF235866),
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(icon: Icon(Icons.apps), label: "Dashboard"),
           BottomNavigationBarItem(

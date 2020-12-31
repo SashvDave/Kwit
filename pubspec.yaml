@@ -33,6 +33,7 @@ dependencies:
   image_picker: ^0.6.2+3
   path_provider: ^1.6.24
   gallery_saver: ^2.0.1
+  flutter_svg:
   google_sign_in: ^4.5.6
   firebase_auth: ^0.16.1
   firebase_database: ^3.1.6
@@ -57,37 +58,8 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - assets/waterdrop.jpg
-    - assets/peaceful.jpg
-    - assets/sunset.png
-    - assets/OptimistByBorrtexArtlist.mp3
-    - assets/sad1Wallpaper.png
-    - assets/sad2Wallpaper.png
-    - assets/sad3Wallpaper.png
-    - assets/videogameWallpaper.png
-    - assets/bg1.png
-    - assets/bg2.png
-    - assets/bg20.png
-    - assets/bg15.png
-    - assets/happy.png
-    - assets/stressbg.png
-    - assets/Calm.mp3
-    - assets/beachbg.jpg
-    - assets/recipe1.jpeg
-    - assets/recipe2.jpeg
-    - assets/recipe3.jpeg
-    - assets/bgstress1.png
-    - assets/cardbg1.png
-    - assets/cardbg2.png
-    - assets/ecigarette.png
-    - assets/trashcan.png
-    - assets/bg6.png
-    - assets/bg7.png
-    - assets/bg8.png
-    - assets/bg9.png
-    - assets/bg21.png
-    - assets/comicbook.pdf
-    - assets/RehabG.png
+    - assets/
+    - assets/icons/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
