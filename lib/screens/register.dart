@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:firebase_database/firebase_database.dart';
+import 'package:kwit/screens/dashboard.dart';
 import 'package:kwit/screens/login.dart';
 import 'package:kwit/screens/sad1.dart';
 import 'package:kwit/screens/sad2.dart';
@@ -58,7 +59,7 @@ class RegisterScreen extends State<register> {
         .user;
     print('Signed user up: ');
     uploadData();
-    Navigator.push(context, MaterialPageRoute(builder: (context) => sad1()));
+    Navigator.push(context, MaterialPageRoute(builder: (context) => MyApp()));
   }
 
   void uploadData() async {
@@ -83,6 +84,7 @@ class RegisterScreen extends State<register> {
                   width: size.width * 0.5),
             ),
             new Container(
+              margin: EdgeInsets.only(top: 100),
               padding: EdgeInsets.all(10.0),
               child: TextFormField(
                 controller: _emailController,
