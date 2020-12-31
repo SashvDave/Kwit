@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:firebase_database/firebase_database.dart';
+import 'package:kwit/screens/login.dart';
 import 'package:kwit/screens/sad1.dart';
 import 'package:kwit/screens/sad2.dart';
 
@@ -56,16 +57,7 @@ class RegisterScreen extends State<register> {
     ))
         .user;
     print('Signed user up: ');
-    uploadData();
     Navigator.push(context, MaterialPageRoute(builder: (context) => sad1()));
-  }
-
-  void uploadData() async {
-    final FirebaseUser user = await FirebaseAuth.instance.currentUser();
-    FirebaseDatabase.instance
-        .reference()
-        .child(user.uid)
-        .set({'state': addressController.text});
   }
 
   Widget build(BuildContext context) {
@@ -82,6 +74,7 @@ class RegisterScreen extends State<register> {
                   width: size.width * 0.5),
             ),
             new Container(
+              margin: EdgeInsets.only(top: 50),
               padding: EdgeInsets.all(10.0),
               child: TextFormField(
                 controller: _emailController,
@@ -161,32 +154,6 @@ class RegisterScreen extends State<register> {
               ),
             ),
             new Container(
-              padding: EdgeInsets.all(10.0),
-              child: TextFormField(
-                decoration: new InputDecoration(
-                  focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(width: 1, color: Colors.lightBlue),
-                  ),
-                  border: const OutlineInputBorder(
-                    borderSide:
-                        const BorderSide(color: Colors.lightBlue, width: 2.0),
-                  ),
-                  hintText: 'Address',
-                  prefixIcon: Icon(Icons.home),
-                  labelText: 'Enter Address',
-                  contentPadding: new EdgeInsets.fromLTRB(
-                    20.0,
-                    10.0,
-                    20.0,
-                    10.0,
-                  ),
-                ),
-                obscureText: false,
-                validator: (input) =>
-                    input.isEmpty ? 'You must enter a password' : null,
-              ),
-            ),
-            new Container(
               margin: EdgeInsets.only(top: 5),
               padding: EdgeInsets.all(10.0),
               child: RaisedButton.icon(
@@ -206,7 +173,7 @@ class RegisterScreen extends State<register> {
             new InkWell(
               onTap: () {
                 Navigator.push(
-                    context, MaterialPageRoute(builder: (context) => sad2()));
+                    context, MaterialPageRoute(builder: (context) => login()));
               },
               child: Text(
                 'Sign in with existing account',

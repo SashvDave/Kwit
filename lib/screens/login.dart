@@ -100,7 +100,7 @@ class LoginScreen extends State<login> {
                   width: size.width * 1),
             ),
             new Container(
-              margin: EdgeInsets.only(bottom: 0, left: 10, right: 10),
+              margin: EdgeInsets.only(top: 50, bottom: 0, left: 10, right: 10),
               width: 150.0,
               child: TextFormField(
                 controller: _emailController,
