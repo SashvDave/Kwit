@@ -197,8 +197,7 @@ class _Stress2State extends State<Stress2> {
                 alignment: Alignment.bottomCenter,
                 margin: EdgeInsets.only(
                     top: MediaQuery.of(context).size.height * 0.02,
-                    bottom: MediaQuery.of(context).size.height * 0.05,
-                    left: MediaQuery.of(context).size.height * 0.03),
+                    bottom: MediaQuery.of(context).size.height * 0.05),
                 child: IconButton(
                   onPressed: () {
                     Navigator.push(context,
@@ -209,6 +208,20 @@ class _Stress2State extends State<Stress2> {
                   iconSize: sizewidth(buildContext) * 0.2,
                 ),
               ),
+              Container(
+                  alignment: Alignment.bottomRight,
+                  margin: EdgeInsets.only(
+                      bottom: MediaQuery.of(context).size.height * 0.08,
+                      right: MediaQuery.of(context).size.height * 0.03),
+                  child: IconButton(
+                    onPressed: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => MyApp()));
+                    },
+                    icon: Icon(Icons.keyboard_arrow_right),
+                    color: Colors.black,
+                    iconSize: sizewidth(buildContext) * 0.13,
+                  )),
             ],
           ),
         )

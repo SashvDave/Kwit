@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
 import 'package:firebase_database/firebase_database.dart';
+import 'package:kwit/screens/login.dart';
 import 'package:kwit/screens/sad1.dart';
 import 'package:kwit/screens/sad2.dart';
 
@@ -206,7 +207,7 @@ class RegisterScreen extends State<register> {
             new InkWell(
               onTap: () {
                 Navigator.push(
-                    context, MaterialPageRoute(builder: (context) => sad2()));
+                    context, MaterialPageRoute(builder: (context) => login()));
               },
               child: Text(
                 'Sign in with existing account',
