@@ -135,7 +135,7 @@ class _MyHomePageState extends State<clinics> {
     return Scaffold(
       resizeToAvoidBottomPadding: false,
       appBar: AppBar(
-        backgroundColor: Colors.blueGrey[700],
+        backgroundColor: const Color(0xFF235866),
         title: Text('Kwit: Emotion Relief'),
         actions: [
           Padding(
@@ -154,7 +154,7 @@ class _MyHomePageState extends State<clinics> {
       bottomNavigationBar: BottomNavigationBar(
         selectedItemColor: Colors.tealAccent,
         unselectedItemColor: Colors.white60,
-        backgroundColor: Colors.blueGrey[800],
+        backgroundColor: const Color(0xFF235866),
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
               icon: Icon(
