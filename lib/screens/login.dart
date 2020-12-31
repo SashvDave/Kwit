@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:kwit/screens/register.dart';
 import 'package:kwit/screens/sad1.dart';
 import 'package:kwit/screens/sad2.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -183,8 +184,8 @@ class LoginScreen extends State<login> {
             ),
             new InkWell(
               onTap: () {
-                Navigator.push(
-                    context, MaterialPageRoute(builder: (context) => sad2()));
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => register()));
               },
               child: Text(
                 'Create Account',
