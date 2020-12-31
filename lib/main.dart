@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kwit/screens/login.dart';
 import 'package:kwit/screens/stress.dart';
 import 'package:kwit/screens/anger.dart';
 import 'package:kwit/screens/sad1.dart';
@@ -38,7 +39,7 @@ class _MyHomePageState extends State<MyHomePage> {
               child: GestureDetector(
                   onTap: () {
                     Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => Anger()));
+                        MaterialPageRoute(builder: (context) => login()));
                   },
                   child: Icon(Icons.portrait_rounded)))
         ],

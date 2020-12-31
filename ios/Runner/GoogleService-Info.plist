@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>469670382085-fhja4glge1drk3uporpc5a67b17lfonk.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.469670382085-fhja4glge1drk3uporpc5a67b17lfonk</string>
+	<key>API_KEY</key>
+	<string>AIzaSyB01wrn8i23iJOTf8ldwuh41OgvYbM73Is</string>
+	<key>GCM_SENDER_ID</key>
+	<string>469670382085</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.kwit</string>
+	<key>PROJECT_ID</key>
+	<string>kwitapp-8b5fb</string>
+	<key>STORAGE_BUCKET</key>
+	<string>kwitapp-8b5fb.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:469670382085:ios:110e268a9ccfce44b36a6c</string>
+</dict>
+</plist>
