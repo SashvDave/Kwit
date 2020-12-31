@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:kwit/screens/anger.dart';
-import 'package:kwit/main.dart';
 import 'package:audioplayers/audio_cache.dart';
 import 'package:audioplayers/audioplayers.dart';
+import 'package:kwit/screens/dashboard.dart';
 import 'package:kwit/screens/stress1.dart';
 import 'anger1.dart';
 import 'package:url_launcher/url_launcher.dart';

@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:kwit/main.dart';
+import 'package:kwit/screens/dashboard.dart';
 import 'package:kwit/screens/sad2.dart';
 import 'package:kwit/screens/sad3.dart';
 import 'package:url_launcher/url_launcher.dart';

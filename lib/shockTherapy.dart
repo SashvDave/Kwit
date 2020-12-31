@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
-
-import 'main.dart';
+import 'package:kwit/screens/dashboard.dart';
 
 class ShockTherapy extends StatelessWidget {
   @override

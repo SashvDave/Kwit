@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:kwit/main.dart';
+import 'package:kwit/screens/dashboard.dart';
 import 'anger3.dart';
 import 'anger1.dart';
 import 'package:circular_countdown_timer/circular_countdown_timer.dart';
@@ -45,7 +45,7 @@ class _Anger2State extends State<Anger2> {
               child: GestureDetector(
                   onTap: () {
                     Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => MyHomePage()));
+                        MaterialPageRoute(builder: (context) => MyApp()));
                   },
                   child: Icon(Icons.portrait_rounded)))
         ],
