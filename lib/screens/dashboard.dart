@@ -5,6 +5,7 @@ import 'package:kwit/screens/rehab.dart';
 import 'package:kwit/screens/stress.dart';
 import 'package:kwit/screens/anger.dart';
 import 'package:kwit/screens/sad1.dart';
+import 'package:kwit/shockTherapy.dart';
 
 void main() {
   runApp(MyApp());
@@ -92,8 +93,10 @@ class _MyHomePageState extends State<MyHomePage> {
               padding: EdgeInsets.only(right: 20.0),
               child: GestureDetector(
                   onTap: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => loginScreen()));
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => ShockTherapy()));
                   },
                   child: Icon(Icons.portrait_rounded)))
         ],
