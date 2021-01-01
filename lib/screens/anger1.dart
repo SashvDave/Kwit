@@ -48,18 +48,22 @@ class _Anger1State extends State<Anger1> {
         SingleChildScrollView(
           child: Column(
             children: <Widget>[
-              CircularCountDownTimer(
-                width: MediaQuery.of(context).size.width * 0.2,
-                height: MediaQuery.of(context).size.width * 0.2,
-                duration: 75,
-                fillColor: Colors.white,
-                color: Colors.greenAccent,
-                textStyle: TextStyle(
-                  color: Colors.amber,
-                  fontWeight: FontWeight.bold,
+              Container(
+                margin: EdgeInsets.only(
+                    top: MediaQuery.of(context).size.height * 0.08),
+                child: CircularCountDownTimer(
+                  width: MediaQuery.of(context).size.width * 0.2,
+                  height: MediaQuery.of(context).size.width * 0.2,
+                  duration: 75,
+                  fillColor: Colors.white,
+                  color: Colors.greenAccent,
+                  textStyle: TextStyle(
+                    color: Colors.amber,
+                    fontWeight: FontWeight.bold,
+                  ),
+                  isReverse: true,
+                  isReverseAnimation: true,
                 ),
-                isReverse: true,
-                isReverseAnimation: true,
               ),
               Padding(
                 padding: const EdgeInsets.all(15.0),
