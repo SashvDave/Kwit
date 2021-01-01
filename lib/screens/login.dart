@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:google_sign_in/google_sign_in.dart';
+import 'package:kwit/screens/register.dart';
 import 'package:kwit/screens/sad1.dart';
 import 'package:kwit/screens/sad2.dart';
 import 'package:firebase_core/firebase_core.dart';
@@ -94,12 +95,12 @@ class LoginScreen extends State<login> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             Positioned(
-              top: 10,
-              child: Image.asset("lib/Screens/assets/smallLogo.gif",
-                  width: size.width * 1),
+              top: 100,
+              child: Image.asset("lib/Screens/assets/happy.png",
+                  height: size.height * 0.2),
             ),
             new Container(
-              margin: EdgeInsets.only(bottom: 0, left: 10, right: 10),
+              margin: EdgeInsets.only(top: 50, bottom: 0, left: 10, right: 10),
               width: 150.0,
               child: TextFormField(
                 controller: _emailController,
@@ -183,8 +184,8 @@ class LoginScreen extends State<login> {
             ),
             new InkWell(
               onTap: () {
-                Navigator.push(
-                    context, MaterialPageRoute(builder: (context) => sad2()));
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => register()));
               },
               child: Text(
                 'Create Account',

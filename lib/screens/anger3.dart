@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:circular_countdown_timer/circular_countdown_timer.dart';
-import '../main.dart';
+import 'package:kwit/screens/dashboard.dart';
 import 'anger1.dart';
 import 'anger2.dart';
 import 'dart:async';
