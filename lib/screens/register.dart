@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:google_sign_in/google_sign_in.dart';
-import 'package:firebase_database/firebase_database.dart';
 import 'package:kwit/screens/dashboard.dart';
 import 'package:kwit/screens/login.dart';
-import 'package:kwit/screens/sad1.dart';
-import 'package:kwit/screens/sad2.dart';
 
 void main() {
   runApp(registerscreen());

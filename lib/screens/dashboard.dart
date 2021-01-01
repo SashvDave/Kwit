@@ -74,9 +74,13 @@ class _MyHomePageState extends State<MyHomePage> {
       if (index == 0) {
         _selectedIndex = 0;
         //Navigator.push(context, MyCustomRoute(builder: (context) => MyApp()));
-      } else {
+      } else if (index == 1) {
         _selectedIndex = 1;
         Navigator.push(context, MyCustomRoute(builder: (context) => Rehabs()));
+      } else {
+        _selectedIndex = 2;
+        Navigator.push(
+            context, MyCustomRoute(builder: (context) => ShockTherapy()));
       }
     });
   }
@@ -108,6 +112,10 @@ class _MyHomePageState extends State<MyHomePage> {
           BottomNavigationBarItem(
             icon: Icon(Icons.house),
             label: "Rehab Centers",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.lightbulb),
+            label: "Shock Therapy",
           )
         ],
         currentIndex: _selectedIndex,

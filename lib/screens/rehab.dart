@@ -6,6 +6,7 @@ import 'package:kwit/main.dart';
 import 'package:kwit/screens/dashboard.dart';
 import 'package:kwit/screens/sad1.dart';
 import 'package:kwit/screens/sad2.dart';
+import 'package:kwit/shockTherapy.dart';
 import 'login.dart';
 import 'package:url_launcher/url_launcher.dart' as UrlLauncher;
 import 'package:http/http.dart' as http;
@@ -108,9 +109,13 @@ class _MyHomePageState extends State<clinics> {
       if (index == 0) {
         _selectedIndex = 0;
         Navigator.push(context, MyCustomRoute(builder: (context) => MyApp()));
-      } else {
+      } else if (index == 1) {
         _selectedIndex = 1;
         Navigator.push(context, MyCustomRoute(builder: (context) => Rehabs()));
+      } else {
+        _selectedIndex = 2;
+        Navigator.push(
+            context, MyCustomRoute(builder: (context) => ShockTherapy()));
       }
     });
   }
@@ -164,6 +169,10 @@ class _MyHomePageState extends State<clinics> {
           BottomNavigationBarItem(
             icon: Icon(Icons.house),
             label: "Rehab Centers",
+          ),
+          BottomNavigationBarItem(
+            icon: Icon(Icons.lightbulb),
+            label: "Shock Therapy",
           )
         ],
         currentIndex: _selectedIndex,
