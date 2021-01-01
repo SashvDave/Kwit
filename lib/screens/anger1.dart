@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:kwit/main.dart';
 import 'anger2.dart';
 import 'anger.dart';
 import 'package:circular_countdown_timer/circular_countdown_timer.dart';
@@ -37,19 +36,6 @@ class _Anger1State extends State<Anger1> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFF3BC3CD),
-      appBar: AppBar(
-        title: Text('Kwit: Stress Relief Exercise'),
-        actions: [
-          Padding(
-              padding: EdgeInsets.only(right: 20.0),
-              child: GestureDetector(
-                  onTap: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => MyHomePage()));
-                  },
-                  child: Icon(Icons.portrait_rounded)))
-        ],
-      ),
       body: Stack(children: <Widget>[
         Container(
           decoration: BoxDecoration(
@@ -86,13 +72,18 @@ class _Anger1State extends State<Anger1> {
                       fontSize: 18),
                 ),
               ),
-              ClipRRect(
-                borderRadius: BorderRadius.circular(20.0),
+              Card(
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(5.0),
+                ),
                 child: Image.asset(
                   'assets/peaceful.jpg',
-                  height: MediaQuery.of(context).size.height * 0.3,
-                  width: MediaQuery.of(context).size.width * 0.8,
+                  height: MediaQuery.of(context).size.height * 0.28,
+                  width: MediaQuery.of(context).size.width * 0.74,
+                  fit: BoxFit.fill,
                 ),
+                semanticContainer: true,
+                clipBehavior: Clip.antiAliasWithSaveLayer,
               ),
               Container(
                 child: Padding(
@@ -119,23 +110,38 @@ class _Anger1State extends State<Anger1> {
                   ),
                 ),
               ),
-              new Container(
-                margin: EdgeInsets.only(
-                    left: MediaQuery.of(context).size.width * 0.01,
-                    right: MediaQuery.of(context).size.width * 0.01),
-                width: MediaQuery.of(context).size.width * 0.98,
-                padding: EdgeInsets.all(10.0),
-                child: RaisedButton(
-                  onPressed: () => _submitData(),
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(30.0))),
-                  child: Text('Next',
-                      style: TextStyle(color: Colors.black, fontSize: 17)),
-                  padding: const EdgeInsets.all(13.0),
-                  splashColor: Colors.lightBlue[200],
-                  color: const Color(0xFFB8ECF0),
-                ),
-              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  Container(
+                    alignment: Alignment.bottomLeft,
+                    padding: EdgeInsets.fromLTRB(
+                        MediaQuery.of(context).size.width * 0.05,
+                        0,
+                        0,
+                        MediaQuery.of(context).size.height * 0.05),
+                    child: IconButton(
+                      onPressed: () => goBack(),
+                      icon: Icon(Icons.keyboard_arrow_left),
+                      color: Colors.blue[200],
+                      iconSize: MediaQuery.of(context).size.width * 0.13,
+                    ),
+                  ),
+                  Container(
+                      alignment: Alignment.bottomRight,
+                      padding: EdgeInsets.fromLTRB(
+                          0,
+                          0,
+                          MediaQuery.of(context).size.width * 0.05,
+                          MediaQuery.of(context).size.height * 0.05),
+                      child: IconButton(
+                        onPressed: () => _submitData(),
+                        icon: Icon(Icons.keyboard_arrow_right),
+                        color: Colors.blue[200],
+                        iconSize: MediaQuery.of(context).size.width * 0.13,
+                      )),
+                ],
+              )
             ],
           ),
         )

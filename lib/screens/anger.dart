@@ -36,19 +36,6 @@ class _AngerState extends State<Anger> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: const Color(0xFF3BC3CD),
-      appBar: AppBar(
-        title: Text('Kwit: Anger relief'),
-        actions: [
-          Padding(
-              padding: EdgeInsets.only(right: 20.0),
-              child: GestureDetector(
-                  onTap: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => MyHomePage()));
-                  },
-                  child: Icon(Icons.portrait_rounded)))
-        ],
-      ),
       body: Stack(
         children: <Widget>[
           Container(
@@ -86,13 +73,18 @@ class _AngerState extends State<Anger> {
                                 fontSize: 7),
                           ),
                         ),
-                        ClipRRect(
-                          borderRadius: BorderRadius.circular(15.0),
+                        Card(
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(5.0),
+                          ),
                           child: Image.asset(
-                            'assets/sunset.png',
+                            'assets/sunset.jpg',
                             height: MediaQuery.of(context).size.height * 0.14,
                             width: MediaQuery.of(context).size.width * 0.37,
+                            fit: BoxFit.fill,
                           ),
+                          semanticContainer: true,
+                          clipBehavior: Clip.antiAliasWithSaveLayer,
                         ),
                         Container(
                           width: 750,
@@ -125,26 +117,41 @@ class _AngerState extends State<Anger> {
               ],
             ),
           ),
-          Align(
-            alignment: Alignment.bottomCenter,
-            child: Container(
-              margin: EdgeInsets.only(
-                  top: MediaQuery.of(context).size.height * 0.02,
-                  left: MediaQuery.of(context).size.width * 0.01),
-              width: MediaQuery.of(context).size.width * 0.98,
-              padding: EdgeInsets.all(10.0),
-              child: RaisedButton(
-                onPressed: () => _submitData(),
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(30.0))),
-                child: Text('Next',
-                    style: TextStyle(color: Colors.black, fontSize: 17)),
-                padding: const EdgeInsets.all(13.0),
-                splashColor: Colors.lightBlue[200],
-                color: const Color(0xFFB8ECF0),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: <Widget>[
+              Container(
+                alignment: Alignment.bottomLeft,
+                padding: EdgeInsets.fromLTRB(
+                    MediaQuery.of(context).size.width * 0.05,
+                    0,
+                    0,
+                    MediaQuery.of(context).size.height * 0.05),
+                child: IconButton(
+                  onPressed: () => goBack(),
+                  icon: Icon(Icons.keyboard_arrow_left),
+                  color: Colors.blue[200],
+                  iconSize: MediaQuery.of(context).size.width * 0.13,
+                ),
               ),
-            ),
-          ),
+              Container(
+                  alignment: Alignment.bottomRight,
+                  padding: EdgeInsets.fromLTRB(
+                      0,
+                      0,
+                      MediaQuery.of(context).size.width * 0.05,
+                      MediaQuery.of(context).size.height * 0.05),
+                  child: IconButton(
+                    onPressed: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => Anger1()));
+                    },
+                    icon: Icon(Icons.keyboard_arrow_right),
+                    color: Colors.blue[200],
+                    iconSize: MediaQuery.of(context).size.width * 0.13,
+                  )),
+            ],
+          )
         ],
       ),
     );
