@@ -51,6 +51,7 @@ class ShockTherapy extends StatelessWidget {
                     scrollDirection: Axis.horizontal,
                   ),
                   items: [
+                    "\nNicotine addiction can make you feel like you can’t go a minute without vaping. Quitting can help you feel more in control of your life.",
                     "\n63% of people that start vaping do not know that vapes contain nicotine, a highly addicting chemical.",
                     "\nE-cigarettes/Vapes have a higher amount of nicotine in them compared to cigarettes leading to addiction almost 3 times faster than cigarettes.",
                     "\nJUULs can deliver higher nicotine intakes 2.7 faster than other e-cigarettes.",

@@ -194,20 +194,19 @@ class _Stress2State extends State<Stress2> {
                 ),
               ),
               Container(
-                alignment: Alignment.bottomCenter,
-                margin: EdgeInsets.only(
-                    top: MediaQuery.of(context).size.height * 0.02,
-                    bottom: MediaQuery.of(context).size.height * 0.05),
-                child: IconButton(
-                  onPressed: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => Stress1()));
-                  },
-                  icon: Icon(Icons.keyboard_arrow_left),
-                  color: Colors.black,
-                  iconSize: sizewidth(buildContext) * 0.2,
-                ),
-              ),
+                  alignment: Alignment.bottomRight,
+                  margin: EdgeInsets.only(
+                      bottom: MediaQuery.of(context).size.height * 0.08,
+                      left: MediaQuery.of(context).size.height * 0.03),
+                  child: IconButton(
+                    onPressed: () {
+                      Navigator.push(context,
+                          MaterialPageRoute(builder: (context) => MyApp()));
+                    },
+                    icon: Icon(Icons.keyboard_arrow_left),
+                    color: Colors.black,
+                    iconSize: sizewidth(buildContext) * 0.13,
+                  )),
               Container(
                   alignment: Alignment.bottomRight,
                   margin: EdgeInsets.only(
