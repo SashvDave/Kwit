@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:kwit/screens/dashboard.dart';
 import 'package:kwit/screens/login.dart';
+import 'package:kwit/shockTherapy.dart';
 
 void main() {
   runApp(registerscreen());
@@ -54,7 +55,8 @@ class RegisterScreen extends State<register> {
     ))
         .user;
     print('Signed user up: ');
-    Navigator.push(context, MaterialPageRoute(builder: (context) => MyApp()));
+    Navigator.push(
+        context, MaterialPageRoute(builder: (context) => ShockTherapy()));
   }
 
   Widget build(BuildContext context) {
