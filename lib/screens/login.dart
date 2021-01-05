@@ -17,10 +17,10 @@ class loginScreen extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
-        brightness: Brightness.light,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
+          primarySwatch: Colors.blue,
+          brightness: Brightness.light,
+          visualDensity: VisualDensity.adaptivePlatformDensity,
+          scaffoldBackgroundColor: const Color(0xFF235866)),
       home: login(title: 'Flutter Demo Home Page'),
     );
   }
@@ -89,114 +89,119 @@ class LoginScreen extends State<login> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
-      body: SingleChildScrollView(
-          child: Form(
-        child: new Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Positioned(
-              top: 100,
-              child: Image.asset("lib/Screens/assets/happy.png",
-                  height: size.height * 0.2),
+      body: Stack(children: [
+        Container(
+          decoration: BoxDecoration(
+            image: DecorationImage(
+              image: AssetImage('assets/loginbg5.png'),
+              fit: BoxFit.cover,
             ),
-            new Container(
-              margin: EdgeInsets.only(top: 50, bottom: 0, left: 10, right: 10),
-              width: 150.0,
-              child: TextFormField(
-                controller: _emailController,
-                decoration: new InputDecoration(
-                  focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(width: 1, color: Colors.blue),
-                  ),
-                  border: const OutlineInputBorder(
-                    borderSide:
-                        const BorderSide(color: Colors.blue, width: 2.0),
-                  ),
-                  hintText: 'Enter your email ID',
-                  prefixIcon: Icon(Icons.email),
-                  labelText: 'Email',
-                  contentPadding:
-                      new EdgeInsets.fromLTRB(20.0, -10.0, 20.0, 10.0),
-                ),
-                validator: (input) =>
-                    input.isEmpty ? 'You must enter an email' : null,
-              ),
-            ),
-            new Container(
-              padding: EdgeInsets.fromLTRB(10, 5, 10, 10),
-              width: 150.0,
-              child: TextFormField(
-                controller: _passwordController,
-                decoration: new InputDecoration(
-                  focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(width: 1, color: Colors.blue),
-                  ),
-                  border: const OutlineInputBorder(
-                    borderSide:
-                        const BorderSide(color: Colors.blue, width: 2.0),
-                  ),
-                  hintText: 'Enter your password here',
-                  prefixIcon: Icon(Icons.lock),
-                  labelText: 'Password',
-                  contentPadding:
-                      new EdgeInsets.fromLTRB(20.0, -10.0, 20.0, 10.0),
-                ),
-                obscureText: true,
-                validator: (input) =>
-                    input.isEmpty ? 'You must enter a password' : null,
-              ),
-            ),
-            new Container(
-              margin: EdgeInsets.only(top: 5),
-              padding: EdgeInsets.all(10.0),
-              child: RaisedButton.icon(
-                  onPressed: () {
-                    _handleSigninWithEmail(
-                        _emailController.text.trim(), _passwordController.text);
-                  },
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(30.0))),
-                  label: Text('Sign In',
-                      style: TextStyle(color: Colors.black, fontSize: 17)),
-                  icon: Icon(Icons.supervised_user_circle, color: Colors.black),
-                  padding: const EdgeInsets.all(13.0),
-                  splashColor: Colors.lightBlue[200],
-                  color: Colors.lightBlue[100]),
-            ),
-            new Container(
-              margin: EdgeInsets.only(top: 5, bottom: 10),
-              padding: EdgeInsets.all(10.0),
-              child: RaisedButton.icon(
-                  onPressed: () {
-                    _handleSigninWithGoogle(googleSignIn);
-                  },
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(30.0))),
-                  label: Text('Sign in with Google',
-                      style: TextStyle(color: Colors.black, fontSize: 17)),
-                  icon: Icon(
-                    Icons.explore,
-                    color: Colors.black,
-                  ),
-                  padding: const EdgeInsets.all(13.0),
-                  splashColor: Colors.lightBlue[100],
-                  color: Colors.lightBlue[200]),
-            ),
-            new InkWell(
-              onTap: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => register()));
-              },
-              child: Text(
-                'Create Account',
-                textAlign: TextAlign.center,
-                overflow: TextOverflow.ellipsis,
-                style: TextStyle(fontSize: 15),
-              ),
-            )
-          ],
+          ),
         ),
-      )),
+        Form(
+          child: new Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              new Container(
+                margin:
+                    EdgeInsets.only(top: 550, bottom: 0, left: 30, right: 30),
+                child: TextFormField(
+                  controller: _emailController,
+                  decoration: new InputDecoration(
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(width: 1, color: Colors.blue),
+                    ),
+                    border: const OutlineInputBorder(
+                      borderSide:
+                          const BorderSide(color: Colors.blue, width: 2.0),
+                    ),
+                    hintText: 'Enter your email ID',
+                    prefixIcon: Icon(Icons.email),
+                    labelText: 'Email',
+                    contentPadding:
+                        new EdgeInsets.fromLTRB(20.0, -10.0, 20.0, 10.0),
+                  ),
+                  validator: (input) =>
+                      input.isEmpty ? 'You must enter an email' : null,
+                ),
+              ),
+              new Container(
+                margin:
+                    EdgeInsets.only(top: 20, bottom: 0, left: 30, right: 30),
+                child: TextFormField(
+                  controller: _passwordController,
+                  decoration: new InputDecoration(
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(width: 1, color: Colors.blue),
+                    ),
+                    border: const OutlineInputBorder(
+                      borderSide:
+                          const BorderSide(color: Colors.blue, width: 2.0),
+                    ),
+                    hintText: 'Enter your password here',
+                    prefixIcon: Icon(Icons.lock),
+                    labelText: 'Password',
+                    contentPadding:
+                        new EdgeInsets.fromLTRB(20.0, -10.0, 20.0, 10.0),
+                  ),
+                  obscureText: true,
+                  validator: (input) =>
+                      input.isEmpty ? 'You must enter a password' : null,
+                ),
+              ),
+              new Container(
+                margin: EdgeInsets.only(top: 5),
+                padding: EdgeInsets.all(20.0),
+                child: RaisedButton.icon(
+                    onPressed: () {
+                      _handleSigninWithEmail(_emailController.text.trim(),
+                          _passwordController.text);
+                    },
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(30.0))),
+                    label: Text('Sign In',
+                        style: TextStyle(color: Colors.black, fontSize: 17)),
+                    icon:
+                        Icon(Icons.supervised_user_circle, color: Colors.black),
+                    padding: const EdgeInsets.all(13.0),
+                    splashColor: Colors.lightBlue[200],
+                    color: const Color(0xFFABF6D4)),
+              ),
+              new Container(
+                margin: EdgeInsets.only(bottom: 10),
+                padding: EdgeInsets.only(left: 20.0, right: 20, bottom: 20),
+                child: RaisedButton.icon(
+                    onPressed: () {
+                      _handleSigninWithGoogle(googleSignIn);
+                    },
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(30.0))),
+                    label: Text('Sign in with Google',
+                        style: TextStyle(color: Colors.black, fontSize: 17)),
+                    icon: Icon(
+                      Icons.explore,
+                      color: Colors.black,
+                    ),
+                    padding: const EdgeInsets.all(13.0),
+                    splashColor: Colors.lightBlue[100],
+                    color: const Color(0xFFABF6D4)),
+              ),
+              new InkWell(
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => register()));
+                },
+                child: Text(
+                  'Create Account',
+                  textAlign: TextAlign.center,
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(fontSize: 15),
+                ),
+              ),
+            ],
+          ),
+        )
+      ]),
     );
   }
 }

@@ -14,10 +14,10 @@ class registerscreen extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
-        primarySwatch: Colors.blue,
-        brightness: Brightness.light,
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
+          primarySwatch: Colors.blue,
+          brightness: Brightness.light,
+          visualDensity: VisualDensity.adaptivePlatformDensity,
+          scaffoldBackgroundColor: const Color(0xFF235866)),
       home: register(title: 'Flutter Demo Home Page'),
     );
   }
@@ -60,128 +60,136 @@ class RegisterScreen extends State<register> {
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
-      body: SingleChildScrollView(
-          child: Form(
-        child: new Column(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          children: [
-            Positioned(
-              left: -10,
-              child: Image.asset("lib/Screens/assets/smallLogo.gif",
-                  width: size.width * 0.5),
+      body: Stack(children: [
+        Container(
+          decoration: BoxDecoration(
+            color: const Color(0xFF235866),
+            image: DecorationImage(
+              image: AssetImage('assets/loginbg6.png'),
+              fit: BoxFit.cover,
             ),
-            new Container(
-              margin: EdgeInsets.only(top: 100),
-              padding: EdgeInsets.all(10.0),
-              child: TextFormField(
-                controller: _emailController,
-                decoration: new InputDecoration(
-                  focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(width: 1, color: Colors.lightBlue),
-                  ),
-                  border: const OutlineInputBorder(
-                    borderSide:
-                        const BorderSide(color: Colors.lightBlue, width: 2.0),
-                  ),
-                  hintText: 'Enter your email ID',
-                  prefixIcon: Icon(Icons.person),
-                  labelText: 'Email',
-                  contentPadding: new EdgeInsets.fromLTRB(
-                    20.0,
-                    10.0,
-                    20.0,
-                    10.0,
-                  ),
-                ),
-                validator: (input) =>
-                    input.isEmpty ? 'You must enter an email ID' : null,
-              ),
-            ),
-            new Container(
-              padding: EdgeInsets.all(10.0),
-              child: TextFormField(
-                decoration: new InputDecoration(
-                  focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(width: 1, color: Colors.lightBlue),
-                  ),
-                  border: const OutlineInputBorder(
-                    borderSide:
-                        const BorderSide(color: Colors.lightBlue, width: 2.0),
-                  ),
-                  hintText: 'Enter your password here',
-                  prefixIcon: Icon(Icons.lock),
-                  labelText: 'Password',
-                  contentPadding: new EdgeInsets.fromLTRB(
-                    20.0,
-                    10.0,
-                    20.0,
-                    10.0,
-                  ),
-                ),
-                obscureText: true,
-                validator: (input) =>
-                    input.isEmpty ? 'You must enter a password' : null,
-              ),
-            ),
-            new Container(
-              padding: EdgeInsets.all(10.0),
-              child: TextFormField(
-                controller: _passwordController,
-                decoration: new InputDecoration(
-                  focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(width: 1, color: Colors.lightBlue),
-                  ),
-                  border: const OutlineInputBorder(
-                    borderSide:
-                        const BorderSide(color: Colors.lightBlue, width: 2.0),
-                  ),
-                  hintText: 'Confirm password here',
-                  prefixIcon: Icon(Icons.vpn_key),
-                  labelText: 'Confirm Password ',
-                  contentPadding: new EdgeInsets.fromLTRB(
-                    20.0,
-                    10.0,
-                    20.0,
-                    10.0,
-                  ),
-                ),
-                obscureText: true,
-                validator: (input) =>
-                    input.isEmpty ? 'You must enter a password' : null,
-              ),
-            ),
-            new Container(
-              margin: EdgeInsets.only(top: 5),
-              padding: EdgeInsets.all(10.0),
-              child: RaisedButton.icon(
-                  onPressed: () {
-                    this._handleSignUp(_emailController.text.trim(),
-                        _passwordController.text.trim());
-                  },
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.all(Radius.circular(30.0))),
-                  label: Text('Create Account',
-                      style: TextStyle(color: Colors.black, fontSize: 17)),
-                  icon: Icon(Icons.supervised_user_circle, color: Colors.black),
-                  padding: const EdgeInsets.all(13.0),
-                  splashColor: Colors.lightBlue[200],
-                  color: Colors.lightBlue[100]),
-            ),
-            new InkWell(
-              onTap: () {
-                Navigator.push(
-                    context, MaterialPageRoute(builder: (context) => login()));
-              },
-              child: Text(
-                'Sign in with existing account',
-                textAlign: TextAlign.center,
-                overflow: TextOverflow.ellipsis,
-                style: TextStyle(fontSize: 15),
-              ),
-            )
-          ],
+          ),
         ),
-      )),
+        Form(
+          child: new Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              new Container(
+                margin:
+                    EdgeInsets.only(top: 550, bottom: 0, left: 30, right: 30),
+                child: TextFormField(
+                  controller: _emailController,
+                  decoration: new InputDecoration(
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(width: 1, color: Colors.lightBlue),
+                    ),
+                    border: const OutlineInputBorder(
+                      borderSide:
+                          const BorderSide(color: Colors.lightBlue, width: 2.0),
+                    ),
+                    hintText: 'Enter your email ID',
+                    prefixIcon: Icon(Icons.person),
+                    labelText: 'Email',
+                    contentPadding: new EdgeInsets.fromLTRB(
+                      20.0,
+                      10.0,
+                      20.0,
+                      10.0,
+                    ),
+                  ),
+                  validator: (input) =>
+                      input.isEmpty ? 'You must enter an email ID' : null,
+                ),
+              ),
+              new Container(
+                margin:
+                    EdgeInsets.only(top: 20, bottom: 0, left: 30, right: 30),
+                child: TextFormField(
+                  decoration: new InputDecoration(
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(width: 1, color: Colors.lightBlue),
+                    ),
+                    border: const OutlineInputBorder(
+                      borderSide: const BorderSide(
+                          color: const Color(0xFFABF6D4), width: 2.0),
+                    ),
+                    hintText: 'Enter your password here',
+                    prefixIcon: Icon(Icons.lock),
+                    labelText: 'Password',
+                    contentPadding: new EdgeInsets.fromLTRB(
+                      20.0,
+                      10.0,
+                      20.0,
+                      10.0,
+                    ),
+                  ),
+                  obscureText: true,
+                  validator: (input) =>
+                      input.isEmpty ? 'You must enter a password' : null,
+                ),
+              ),
+              new Container(
+                margin:
+                    EdgeInsets.only(top: 20, bottom: 0, left: 30, right: 30),
+                child: TextFormField(
+                  controller: _passwordController,
+                  decoration: new InputDecoration(
+                    focusedBorder: OutlineInputBorder(
+                      borderSide: BorderSide(width: 1, color: Colors.lightBlue),
+                    ),
+                    border: const OutlineInputBorder(
+                      borderSide:
+                          const BorderSide(color: Colors.lightBlue, width: 2.0),
+                    ),
+                    hintText: 'Confirm password here',
+                    prefixIcon: Icon(Icons.vpn_key),
+                    labelText: 'Confirm Password ',
+                    contentPadding: new EdgeInsets.fromLTRB(
+                      20.0,
+                      10.0,
+                      20.0,
+                      10.0,
+                    ),
+                  ),
+                  obscureText: true,
+                  validator: (input) =>
+                      input.isEmpty ? 'You must enter a password' : null,
+                ),
+              ),
+              new Container(
+                margin: EdgeInsets.only(top: 5),
+                padding: EdgeInsets.all(20.0),
+                child: RaisedButton.icon(
+                    onPressed: () {
+                      this._handleSignUp(_emailController.text.trim(),
+                          _passwordController.text.trim());
+                    },
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.all(Radius.circular(30.0))),
+                    label: Text('Create Account',
+                        style: TextStyle(color: Colors.black, fontSize: 17)),
+                    icon:
+                        Icon(Icons.supervised_user_circle, color: Colors.black),
+                    padding: const EdgeInsets.all(13.0),
+                    splashColor: Colors.lightBlue[200],
+                    color: const Color(0xFFABF6D4)),
+              ),
+              new InkWell(
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => login()));
+                },
+                child: Text(
+                  'Sign in with existing account',
+                  textAlign: TextAlign.center,
+                  overflow: TextOverflow.ellipsis,
+                  style: TextStyle(fontSize: 15),
+                ),
+              )
+            ],
+          ),
+        )
+      ]),
     );
   }
 }

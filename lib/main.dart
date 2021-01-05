@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/material.dart';
 import 'package:kwit/screens/dashboard.dart';
+import 'package:kwit/screens/login.dart';
 
 void main() {
   runApp(App());
@@ -12,7 +13,7 @@ class App extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: "Kwit",
-      home: MyApp(),
+      home: login(),
     );
   }
 }

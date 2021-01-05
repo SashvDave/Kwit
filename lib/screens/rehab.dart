@@ -148,10 +148,8 @@ class _MyHomePageState extends State<clinics> {
               child: GestureDetector(
                   onTap: () async {
                     await FirebaseAuth.instance.signOut().then((value) =>
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => loginScreen())));
+                        Navigator.push(context,
+                            MaterialPageRoute(builder: (context) => login())));
                   },
                   child: Icon(Icons.portrait_rounded)))
         ],

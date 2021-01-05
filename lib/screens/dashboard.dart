@@ -98,7 +98,7 @@ class _MyHomePageState extends State<MyHomePage> {
               child: GestureDetector(
                   onTap: () {
                     Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => loginScreen()));
+                        MaterialPageRoute(builder: (context) => login()));
                   },
                   child: Icon(Icons.portrait_rounded)))
         ],
