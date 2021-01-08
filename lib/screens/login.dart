@@ -106,7 +106,7 @@ class LoginScreen extends State<login> {
             children: [
               new Container(
                 margin:
-                    EdgeInsets.only(top: 550, bottom: 0, left: 30, right: 30),
+                    EdgeInsets.only(top: 550, bottom: 0, left: 55, right: 55),
                 child: TextFormField(
                   controller: _emailController,
                   decoration: new InputDecoration(
@@ -129,7 +129,7 @@ class LoginScreen extends State<login> {
               ),
               new Container(
                 margin:
-                    EdgeInsets.only(top: 20, bottom: 0, left: 30, right: 30),
+                    EdgeInsets.only(top: 20, bottom: 0, left: 55, right: 55),
                 child: TextFormField(
                   controller: _passwordController,
                   decoration: new InputDecoration(
@@ -153,7 +153,8 @@ class LoginScreen extends State<login> {
               ),
               new Container(
                 margin: EdgeInsets.only(top: 5),
-                padding: EdgeInsets.all(20.0),
+                padding:
+                    EdgeInsets.only(top: 20.0, bottom: 20, left: 55, right: 55),
                 child: RaisedButton.icon(
                     onPressed: () {
                       _handleSigninWithEmail(_emailController.text.trim(),
@@ -170,8 +171,8 @@ class LoginScreen extends State<login> {
                     color: const Color(0xFFABF6D4)),
               ),
               new Container(
-                margin: EdgeInsets.only(bottom: 10),
-                padding: EdgeInsets.only(left: 20.0, right: 20, bottom: 20),
+                padding:
+                    EdgeInsets.only(top: 1.0, bottom: 20, left: 55, right: 55),
                 child: RaisedButton.icon(
                     onPressed: () {
                       _handleSigninWithGoogle(googleSignIn);
@@ -197,7 +198,7 @@ class LoginScreen extends State<login> {
                   'Create Account',
                   textAlign: TextAlign.center,
                   overflow: TextOverflow.ellipsis,
-                  style: TextStyle(fontSize: 15),
+                  style: TextStyle(fontSize: 18),
                 ),
               ),
             ],
