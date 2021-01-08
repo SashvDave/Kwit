@@ -63,7 +63,8 @@ class LoginScreen extends State<login> {
 
     //assert(user != null);
     //assert(await user.getIdToken() != null);
-
+    Navigator.push(
+        context, MaterialPageRoute(builder: (context) => ShockTherapy()));
     print("Signed in user:");
     return user;
   }
