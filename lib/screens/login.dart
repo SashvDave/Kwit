@@ -84,7 +84,6 @@ class LoginScreen extends State<login> {
     print("signed in ");
     Navigator.push(
         context, MaterialPageRoute(builder: (context) => ShockTherapy()));
-    return user;
   }
 
   @override
@@ -95,7 +94,7 @@ class LoginScreen extends State<login> {
         Container(
           decoration: BoxDecoration(
             image: DecorationImage(
-              image: AssetImage('assets/loginbg5.png'),
+              image: AssetImage('assets/newlogin.png'),
               fit: BoxFit.cover,
             ),
           ),

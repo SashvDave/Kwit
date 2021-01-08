@@ -12,7 +12,7 @@ class ShockTherapy extends StatelessWidget {
           Container(
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: AssetImage('assets/bg21.png'),
+                image: AssetImage('assets/bg1.png'),
                 fit: BoxFit.cover,
               ),
             ),
@@ -28,27 +28,28 @@ class ShockTherapy extends StatelessWidget {
                       MediaQuery.of(context).size.height * 0.05),
                   child: Text(
                     "Why should you stop vaping?",
+                    textAlign: TextAlign.center,
                     style: TextStyle(
                       fontWeight: FontWeight.bold,
-                      fontSize: 18,
-                      color: Colors.black,
+                      fontSize: 34,
+                      color: Colors.white,
                     ),
                   ),
                 ),
                 CarouselSlider(
                   options: CarouselOptions(
-                    height: MediaQuery.of(context).size.height * 0.7,
+                    height: MediaQuery.of(context).size.height * 0.5,
                     aspectRatio: 16 / 9,
                     viewportFraction: 0.8,
                     initialPage: 0,
                     enableInfiniteScroll: true,
                     reverse: false,
                     autoPlay: true,
-                    autoPlayInterval: Duration(seconds: 7),
-                    autoPlayAnimationDuration: Duration(milliseconds: 1500),
+                    autoPlayInterval: Duration(seconds: 6),
+                    autoPlayAnimationDuration: Duration(milliseconds: 1200),
                     autoPlayCurve: Curves.fastOutSlowIn,
                     enlargeCenterPage: true,
-                    scrollDirection: Axis.horizontal,
+                    scrollDirection: Axis.vertical,
                   ),
                   items: [
                     "\nNicotine addiction can make you feel like you can’t go a minute without vaping. Quitting can help you feel more in control of your life.",
@@ -63,34 +64,27 @@ class ShockTherapy extends StatelessWidget {
                       builder: (BuildContext context) {
                         return Container(
                           decoration: BoxDecoration(
-                            boxShadow: [
-                              BoxShadow(
-                                color: Colors.grey,
-                                offset: Offset(0.0, 5.0),
-                                blurRadius: 5.0,
-                              ),
-                            ],
                             borderRadius: BorderRadius.circular(10.0),
                             image: DecorationImage(
-                              image: AssetImage('assets/bg3.png'),
+                              image: AssetImage('assets/bg21.png'),
                               fit: BoxFit.cover,
                             ),
                           ),
                           padding: EdgeInsets.all(4),
                           margin: EdgeInsets.fromLTRB(
-                              MediaQuery.of(context).size.width * 0.01,
+                              MediaQuery.of(context).size.width * 0.05,
                               MediaQuery.of(context).size.height * 0.02,
-                              MediaQuery.of(context).size.width * 0.01,
+                              MediaQuery.of(context).size.width * 0.05,
                               MediaQuery.of(context).size.height * 0.02),
-                          height: MediaQuery.of(context).size.height * 0.13,
-                          width: MediaQuery.of(context).size.width * 0.86,
+                          height: MediaQuery.of(context).size.height * 0.3,
+                          width: MediaQuery.of(context).size.width * 0.5,
                           child: Text(
                             "$i",
                             textAlign: TextAlign.center,
                             style: TextStyle(
-                              fontWeight: FontWeight.bold,
-                              color: Colors.white,
-                            ),
+                                fontSize: 25,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.black),
                           ),
                         );
                       },
@@ -99,14 +93,16 @@ class ShockTherapy extends StatelessWidget {
                 ),
                 new Container(
                   margin: EdgeInsets.fromLTRB(
-                      MediaQuery.of(context).size.width * 0.01,
+                      MediaQuery.of(context).size.width * 0.15,
                       MediaQuery.of(context).size.height * 0.03,
-                      MediaQuery.of(context).size.width * 0.01,
+                      MediaQuery.of(context).size.width * 0.15,
                       MediaQuery.of(context).size.height * 0.03),
                   width: MediaQuery.of(context).size.width * 0.95,
+                  height: MediaQuery.of(context).size.height * 0.06,
                   child: RaisedButton(
+                    hoverElevation: 100,
                     child: Text(
-                      "Next",
+                      "I'm ready to proceed!",
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         fontWeight: FontWeight.bold,
@@ -115,7 +111,7 @@ class ShockTherapy extends StatelessWidget {
                       ),
                     ),
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(18.0),
+                      borderRadius: BorderRadius.circular(70.0),
                     ),
                     color: Colors.orange[200],
                     onPressed: () {

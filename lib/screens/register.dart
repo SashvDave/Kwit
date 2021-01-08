@@ -67,7 +67,7 @@ class RegisterScreen extends State<register> {
           decoration: BoxDecoration(
             color: const Color(0xFF235866),
             image: DecorationImage(
-              image: AssetImage('assets/loginbg6.png'),
+              image: AssetImage('assets/newreg.png'),
               fit: BoxFit.cover,
             ),
           ),
