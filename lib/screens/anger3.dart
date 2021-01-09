@@ -33,11 +33,18 @@ class _Anger3State extends State<Anger3> {
     Navigator.push(context, MaterialPageRoute(builder: (context) => Anger2()));
   }
 
-  Future<void> _pickImage() async {
-    File selected = await ImagePicker.pickImage(source: ImageSource.gallery);
+  File _image;
+  final picker = ImagePicker();
+
+  Future getImage() async {
+    final pickedFile = await ImagePicker.pickImage(source: ImageSource.gallery);
 
     setState(() {
-      _imageFile = selected;
+      if (pickedFile != null) {
+        _image = File(pickedFile.path);
+      } else {
+        print('No image selected.');
+      }
     });
   }
 
@@ -88,42 +95,44 @@ class _Anger3State extends State<Anger3> {
                       fontSize: 18),
                 ),
               ),
-              _imageFile != null
-                  ? ClipRRect(
-                      borderRadius: BorderRadius.circular(20.0),
-                      child: Container(
-                        color: Colors.blue[100],
-                        child: SizedBox(
-                          child: Image.file(_imageFile),
-                          height: MediaQuery.of(context).size.height * 0.4,
-                          width: MediaQuery.of(context).size.width * 0.9,
-                        ),
-                      ),
-                    )
-                  : ClipRRect(
-                      borderRadius: BorderRadius.circular(20.0),
-                      child: Container(
-                        color: Colors.blue[100],
-                        child: SizedBox(
-                          child: Column(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Icon(
-                                Icons.camera_alt,
-                                size: 50,
-                              ),
-                              Text("No image uploaded")
-                            ],
+              Container(
+                child: _imageFile != null
+                    ? ClipRRect(
+                        borderRadius: BorderRadius.circular(20.0),
+                        child: Container(
+                          color: Colors.blue[100],
+                          child: SizedBox(
+                            child: Image.file(_image),
+                            height: MediaQuery.of(context).size.height * 0.4,
+                            width: MediaQuery.of(context).size.width * 0.9,
                           ),
-                          height: MediaQuery.of(context).size.height * 0.4,
-                          width: MediaQuery.of(context).size.width * 0.9,
+                        ),
+                      )
+                    : ClipRRect(
+                        borderRadius: BorderRadius.circular(20.0),
+                        child: Container(
+                          color: Colors.blue[100],
+                          child: SizedBox(
+                            child: Column(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Icon(
+                                  Icons.camera_alt,
+                                  size: 50,
+                                ),
+                                Text("No image uploaded")
+                              ],
+                            ),
+                            height: MediaQuery.of(context).size.height * 0.4,
+                            width: MediaQuery.of(context).size.width * 0.9,
+                          ),
                         ),
                       ),
-                    ),
+              ),
               Padding(
                 padding: const EdgeInsets.fromLTRB(0, 30.0, 0, 5.0),
                 child: RaisedButton(
-                  onPressed: () => _pickImage(),
+                  onPressed: () => getImage(),
                   padding: EdgeInsets.all(10.0),
                   textColor: Colors.black,
                   splashColor: Colors.lightBlue[200],
