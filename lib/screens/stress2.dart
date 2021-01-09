@@ -194,34 +194,43 @@ class _Stress2State extends State<Stress2> {
                     elevation: 5,
                   ),
                 ),
-                Container(
-                    alignment: Alignment.bottomLeft,
-                    margin: EdgeInsets.only(
-                        left: MediaQuery.of(context).size.height * 0.03),
-                    child: Positioned(
-                        child: IconButton(
-                      onPressed: () {
-                        Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => Stress2()));
-                      },
-                      icon: Icon(Icons.keyboard_arrow_left),
-                      color: Colors.black,
-                      iconSize: sizewidth(buildContext) * 0.13,
-                    ))),
-                Container(
-                    alignment: Alignment.bottomRight,
-                    margin: EdgeInsets.only(
-                        right: MediaQuery.of(context).size.height * 0.03),
-                    child: Positioned(
-                        child: IconButton(
-                      onPressed: () {
-                        Navigator.push(context,
-                            MaterialPageRoute(builder: (context) => MyApp()));
-                      },
-                      icon: Icon(Icons.keyboard_arrow_right),
-                      color: Colors.black,
-                      iconSize: sizewidth(buildContext) * 0.13,
-                    ))),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Container(
+                        alignment: Alignment.bottomLeft,
+                        margin: EdgeInsets.only(
+                            left: MediaQuery.of(context).size.height * 0.03),
+                        child: Positioned(
+                            child: IconButton(
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => Stress2()));
+                          },
+                          icon: Icon(Icons.keyboard_arrow_left),
+                          color: Colors.black,
+                          iconSize: sizewidth(buildContext) * 0.13,
+                        ))),
+                    Container(
+                        alignment: Alignment.bottomRight,
+                        margin: EdgeInsets.only(
+                            right: MediaQuery.of(context).size.height * 0.03),
+                        child: Positioned(
+                            child: IconButton(
+                          onPressed: () {
+                            Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => MyApp()));
+                          },
+                          icon: Icon(Icons.keyboard_arrow_right),
+                          color: Colors.black,
+                          iconSize: sizewidth(buildContext) * 0.13,
+                        ))),
+                  ],
+                )
               ],
             ),
           ))

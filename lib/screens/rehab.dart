@@ -1,15 +1,9 @@
-import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:flutter/services.dart';
-import 'package:kwit/main.dart';
 import 'package:kwit/screens/dashboard.dart';
-import 'package:kwit/screens/sad1.dart';
-import 'package:kwit/screens/sad2.dart';
-import './shockTherapy.dart';
+import 'shockTherapy.dart';
 import 'login.dart';
 import 'package:url_launcher/url_launcher.dart' as UrlLauncher;
-import 'package:http/http.dart' as http;
 import 'dart:io' show Platform;
 
 void main() {
