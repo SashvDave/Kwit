@@ -78,7 +78,7 @@ class RegisterScreen extends State<register> {
             children: [
               new Container(
                 margin:
-                    EdgeInsets.only(top: 550, bottom: 0, left: 30, right: 30),
+                    EdgeInsets.only(top: 550, bottom: 0, left: 55, right: 55),
                 child: TextFormField(
                   controller: _emailController,
                   decoration: new InputDecoration(
@@ -105,7 +105,7 @@ class RegisterScreen extends State<register> {
               ),
               new Container(
                 margin:
-                    EdgeInsets.only(top: 20, bottom: 0, left: 30, right: 30),
+                    EdgeInsets.only(top: 20, bottom: 0, left: 55, right: 55),
                 child: TextFormField(
                   decoration: new InputDecoration(
                     focusedBorder: OutlineInputBorder(
@@ -132,7 +132,7 @@ class RegisterScreen extends State<register> {
               ),
               new Container(
                 margin:
-                    EdgeInsets.only(top: 20, bottom: 0, left: 30, right: 30),
+                    EdgeInsets.only(top: 20, bottom: 0, left: 55, right: 55),
                 child: TextFormField(
                   controller: _passwordController,
                   decoration: new InputDecoration(
@@ -160,7 +160,8 @@ class RegisterScreen extends State<register> {
               ),
               new Container(
                 margin: EdgeInsets.only(top: 5),
-                padding: EdgeInsets.all(20.0),
+                padding:
+                    EdgeInsets.only(top: 20.0, bottom: 20, left: 55, right: 55),
                 child: RaisedButton.icon(
                     onPressed: () {
                       this._handleSignUp(_emailController.text.trim(),
@@ -185,7 +186,7 @@ class RegisterScreen extends State<register> {
                   'Sign in with existing account',
                   textAlign: TextAlign.center,
                   overflow: TextOverflow.ellipsis,
-                  style: TextStyle(fontSize: 15),
+                  style: TextStyle(fontSize: 18),
                 ),
               )
             ],

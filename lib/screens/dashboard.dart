@@ -7,6 +7,7 @@ import 'package:kwit/screens/stress.dart';
 import 'package:kwit/screens/anger.dart';
 import 'package:kwit/screens/sad1.dart';
 import './shockTherapy.dart';
+import 'package:kwit/screens/triggers.dart';
 
 void main() {
   runApp(MyApp());
@@ -80,8 +81,7 @@ class _MyHomePageState extends State<MyHomePage> {
         Navigator.push(context, MyCustomRoute(builder: (context) => Rehabs()));
       } else {
         _selectedIndex = 2;
-        Navigator.push(
-            context, MyCustomRoute(builder: (context) => ShockTherapy()));
+        Navigator.push(context, MyCustomRoute(builder: (context) => Trigger()));
       }
     });
   }
