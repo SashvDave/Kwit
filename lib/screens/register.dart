@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:kwit/screens/dashboard.dart';
 import 'package:kwit/screens/login.dart';
-import 'package:kwit/shockTherapy.dart';
+import './shockTherapy.dart';
 
 void main() {
   runApp(registerscreen());

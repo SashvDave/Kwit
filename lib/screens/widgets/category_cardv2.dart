@@ -46,14 +46,14 @@ class CategoryCardv2 extends StatelessWidget {
                     children: <Widget>[
                       Center(
                           child: new Container(
-                              padding: EdgeInsets.only(top: 40),
+                              padding: EdgeInsets.only(top: 50),
                               child: Text(
                                 title,
                                 textAlign: TextAlign.center,
                                 style: Theme.of(context)
                                     .textTheme
                                     .title
-                                    .copyWith(fontSize: 15),
+                                    .copyWith(fontSize: 20),
                               )))
                     ],
                   ),

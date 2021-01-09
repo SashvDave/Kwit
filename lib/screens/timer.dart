@@ -11,11 +11,10 @@ class Timer extends StatelessWidget {
       home: CountDownTimer(),
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-        iconTheme: IconThemeData(
-          color: Colors.white,
-        ),
-        accentColor: Colors.red,
-      ),
+          iconTheme: IconThemeData(
+            color: Colors.black,
+          ),
+          accentColor: const Color(0xFFABF6D4)),
     );
   }
 }
@@ -47,12 +46,19 @@ class _CountDownTimerState extends State<CountDownTimer>
   Widget build(BuildContext context) {
     ThemeData themeData = Theme.of(context);
     return Scaffold(
-      backgroundColor: Colors.white10,
       body: AnimatedBuilder(
           animation: controller,
           builder: (context, child) {
             return Stack(
               children: <Widget>[
+                Container(
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      image: AssetImage('assets/timerbg.png'),
+                      fit: BoxFit.cover,
+                    ),
+                  ),
+                ),
                 Align(
                   alignment: Alignment.bottomCenter,
                   child: Container(
@@ -73,13 +79,15 @@ class _CountDownTimerState extends State<CountDownTimer>
                             aspectRatio: 1.0,
                             child: Stack(
                               children: <Widget>[
-                                Positioned.fill(
-                                  child: CustomPaint(
-                                      painter: CustomTimerPainter(
-                                    animation: controller,
-                                    backgroundColor: Colors.white,
-                                    color: themeData.indicatorColor,
-                                  )),
+                                Container(
+                                  child: Positioned.fill(
+                                    child: CustomPaint(
+                                        painter: CustomTimerPainter(
+                                      animation: controller,
+                                      backgroundColor: Colors.black,
+                                      color: themeData.indicatorColor,
+                                    )),
+                                  ),
                                 ),
                                 Align(
                                   alignment: FractionalOffset.center,
@@ -89,18 +97,58 @@ class _CountDownTimerState extends State<CountDownTimer>
                                     crossAxisAlignment:
                                         CrossAxisAlignment.center,
                                     children: <Widget>[
-                                      Text(
-                                        "Count Down Timer",
-                                        style: TextStyle(
-                                            fontSize: 20.0,
-                                            color: Colors.white),
-                                      ),
+                                      if (timerString.toString() == '0:00')
+                                        (Container(
+                                            margin: EdgeInsets.only(
+                                              top: 40,
+                                              left: 80,
+                                              right: 80,
+                                            ),
+                                            child: Text(
+                                              "Hello! Use this timer to keep track of time!",
+                                              textAlign: TextAlign.center,
+                                              style: TextStyle(
+                                                  fontSize: 22.0,
+                                                  color: Colors.white),
+                                            ))),
                                       Text(
                                         timerString,
                                         style: TextStyle(
                                             fontSize: 112.0,
                                             color: Colors.white),
                                       ),
+                                      AnimatedBuilder(
+                                          animation: controller,
+                                          builder: (context, child) {
+                                            return FloatingActionButton
+                                                .extended(
+                                                    onPressed: () {
+                                                      if (controller
+                                                          .isAnimating)
+                                                        controller.stop();
+                                                      else {
+                                                        controller.reverse(
+                                                            from: controller
+                                                                        .value ==
+                                                                    0.0
+                                                                ? 1.0
+                                                                : controller
+                                                                    .value);
+                                                      }
+                                                    },
+                                                    icon: Icon(
+                                                        controller.isAnimating
+                                                            ? Icons.pause
+                                                            : Icons.play_arrow),
+                                                    label: Text(
+                                                        controller.isAnimating
+                                                            ? "Pause"
+                                                            : "Play",
+                                                        style: TextStyle(
+                                                            fontSize: 30.0,
+                                                            color:
+                                                                Colors.black)));
+                                          }),
                                     ],
                                   ),
                                 ),
@@ -109,26 +157,6 @@ class _CountDownTimerState extends State<CountDownTimer>
                           ),
                         ),
                       ),
-                      AnimatedBuilder(
-                          animation: controller,
-                          builder: (context, child) {
-                            return FloatingActionButton.extended(
-                                onPressed: () {
-                                  if (controller.isAnimating)
-                                    controller.stop();
-                                  else {
-                                    controller.reverse(
-                                        from: controller.value == 0.0
-                                            ? 1.0
-                                            : controller.value);
-                                  }
-                                },
-                                icon: Icon(controller.isAnimating
-                                    ? Icons.pause
-                                    : Icons.play_arrow),
-                                label: Text(
-                                    controller.isAnimating ? "Pause" : "Play"));
-                          }),
                     ],
                   ),
                 ),

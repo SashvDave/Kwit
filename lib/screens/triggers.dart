@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:kwit/main.dart';
 import 'package:kwit/screens/stress.dart';
 import 'package:kwit/screens/stress2.dart';
+import 'package:kwit/screens/timer.dart';
 import 'package:kwit/screens/widgets/category_card.dart';
 import 'package:kwit/screens/widgets/category_cardv2.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -39,7 +40,7 @@ class _TriggerState extends State<Trigger> {
                   Container(
                     padding: EdgeInsets.only(top: 40),
                     child: Text(
-                        "Exercising is a great method of releasing stress & anxiety!",
+                        "Feeling a crave? Try partaking in some of the activities below!",
                         style: Theme.of(context)
                             .textTheme
                             // ignore: deprecated_member_use
@@ -56,22 +57,40 @@ class _TriggerState extends State<Trigger> {
                         mainAxisSpacing: 20,
                         children: <Widget>[
                           CategoryCardv2(
-                            title: "Diet Recommendation",
-                            press: () => launch(
-                                'https://www.ncbi.nlm.nih.gov/books/NBK235267/'),
+                            title: "Nicotine Replacement Therapy",
+                            press: () => Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                    builder: (context) => Timer())),
                           ),
                           CategoryCardv2(
-                            title: "Kegel Exercises",
+                            title: "Delay \n your crave",
                             press: () => launch(
                                 'https://www.mayoclinic.org/healthy-lifestyle/mens-health/in-depth/kegel-exercises-for-men/art-20045074'),
                           ),
                           CategoryCardv2(
-                            title: "Meditation",
+                            title: "Chew on something",
                             press: () => launch(
                                 'https://www.mindful.org/how-to-meditate/'),
                           ),
                           CategoryCardv2(
-                            title: "Yoga",
+                            title: "Engage in \nsome physical activity",
+                            press: () =>
+                                launch('https://www.yogajournal.com/poses/'),
+                          ),
+                          CategoryCardv2(
+                            title: "Call a friend",
+                            press: () =>
+                                launch('https://www.yogajournal.com/poses/'),
+                          ),
+                          CategoryCardv2(
+                            title: "Call a helpline",
+                            press: () =>
+                                launch('https://www.yogajournal.com/poses/'),
+                          ),
+                          CategoryCardv2(
+                            title:
+                                "Write down to remember the benefits of resisting",
                             press: () =>
                                 launch('https://www.yogajournal.com/poses/'),
                           ),

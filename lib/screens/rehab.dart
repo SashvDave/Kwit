@@ -6,7 +6,7 @@ import 'package:kwit/main.dart';
 import 'package:kwit/screens/dashboard.dart';
 import 'package:kwit/screens/sad1.dart';
 import 'package:kwit/screens/sad2.dart';
-import 'package:kwit/shockTherapy.dart';
+import './shockTherapy.dart';
 import 'login.dart';
 import 'package:url_launcher/url_launcher.dart' as UrlLauncher;
 import 'package:http/http.dart' as http;

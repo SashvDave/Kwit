@@ -5,7 +5,7 @@ import 'package:kwit/screens/register.dart';
 import 'package:kwit/screens/sad1.dart';
 import 'package:kwit/screens/sad2.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:kwit/shockTherapy.dart';
+import './shockTherapy.dart';
 
 void main() async {
   runApp(loginScreen());
