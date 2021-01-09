@@ -3,7 +3,7 @@ import 'package:kwit/screens/dashboard.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:carousel_slider/carousel_options.dart';
 
-class ShockTherapy extends StatelessWidget {
+class _ShockTherapy extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(

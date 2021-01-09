@@ -13,7 +13,7 @@ class App extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: "Kwit",
-      home: login(),
+      home: MyApp(),
     );
   }
 }

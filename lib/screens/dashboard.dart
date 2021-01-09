@@ -2,10 +2,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:kwit/screens/login.dart';
 import 'package:kwit/screens/rehab.dart';
+import 'package:kwit/screens/shockTherapy1.dart';
 import 'package:kwit/screens/stress.dart';
 import 'package:kwit/screens/anger.dart';
 import 'package:kwit/screens/sad1.dart';
-import 'package:kwit/shockTherapy.dart';
+import './shockTherapy.dart';
 
 void main() {
   runApp(MyApp());
