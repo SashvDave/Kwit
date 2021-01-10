@@ -15,6 +15,7 @@ class _AngerState extends State<Anger> {
   AudioCache audioCache;
   bool isPlaying = false;
 
+  final _textController = TextEditingController();
   void initState() {
     super.initState();
     initPlayer();
@@ -36,29 +37,23 @@ class _AngerState extends State<Anger> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color(0xFF3BC3CD),
       body: Stack(
         children: <Widget>[
           Container(
             decoration: BoxDecoration(
-              image: DecorationImage(
-                image: AssetImage('assets/bg6.png'),
-                fit: BoxFit.cover,
-              ),
-            ),
+                image: DecorationImage(
+                    image: AssetImage('assets/bg6.png'), fit: BoxFit.cover)),
           ),
-          SingleChildScrollView(
+          Container(
             child: Column(
               children: <Widget>[
                 Transform.scale(
                   scale: 2.5,
                   child: Container(
                     decoration: BoxDecoration(
-                      color: Colors.green[100],
-                      shape: BoxShape.circle,
-                    ),
+                        color: Colors.green[100], shape: BoxShape.circle),
                     child: Column(
-                      children: [
+                      children: <Widget>[
                         Container(
                           margin: EdgeInsets.fromLTRB(
                               0,
@@ -88,27 +83,29 @@ class _AngerState extends State<Anger> {
                           clipBehavior: Clip.antiAliasWithSaveLayer,
                         ),
                         Container(
-                          width: 750,
-                          child: IconButton(
-                            padding: EdgeInsets.only(top: 15, bottom: 10),
-                            iconSize: 30,
-                            icon: Icon(
-                              isPlaying ? Icons.pause : Icons.play_arrow,
-                              color: const Color(0xFF1976D2),
+                          child: Container(
+                            width: 750,
+                            child: IconButton(
+                              padding: EdgeInsets.only(top: 15, bottom: 10),
+                              iconSize: 30,
+                              icon: Icon(
+                                isPlaying ? Icons.pause : Icons.play_arrow,
+                                color: const Color(0xFF1976D2),
+                              ),
+                              onPressed: () {
+                                if (isPlaying) {
+                                  advancedPlayer.pause();
+                                  setState(() {
+                                    isPlaying = false;
+                                  });
+                                } else {
+                                  audioCache.play('Calm.mp3');
+                                  setState(() {
+                                    isPlaying = true;
+                                  });
+                                }
+                              },
                             ),
-                            onPressed: () {
-                              if (isPlaying) {
-                                advancedPlayer.pause();
-                                setState(() {
-                                  isPlaying = false;
-                                });
-                              } else {
-                                audioCache.play('Calm.mp3');
-                                setState(() {
-                                  isPlaying = true;
-                                });
-                              }
-                            },
                           ),
                         )
                       ],
@@ -127,7 +124,7 @@ class _AngerState extends State<Anger> {
                     MediaQuery.of(context).size.width * 0.05,
                     0,
                     0,
-                    MediaQuery.of(context).size.height * 0.05),
+                    MediaQuery.of(context).size.height * 0.15),
                 child: IconButton(
                   onPressed: () => goBack(),
                   icon: Icon(Icons.keyboard_arrow_left),
@@ -141,7 +138,7 @@ class _AngerState extends State<Anger> {
                       0,
                       0,
                       MediaQuery.of(context).size.width * 0.05,
-                      MediaQuery.of(context).size.height * 0.05),
+                      MediaQuery.of(context).size.height * 0.15),
                   child: IconButton(
                     onPressed: () {
                       Navigator.push(context,

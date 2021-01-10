@@ -18,11 +18,7 @@ class _Anger3State extends State<Anger3> {
   final interval = const Duration(seconds: 1);
 
   void _submitData() {
-    if (_imageFile == null) {
-      return;
-    } else {
-      Navigator.push(context, MaterialPageRoute(builder: (context) => MyApp()));
-    }
+    Navigator.push(context, MaterialPageRoute(builder: (context) => MyApp()));
   }
 
   void initState() {

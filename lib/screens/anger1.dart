@@ -24,12 +24,7 @@ class _Anger1State extends State<Anger1> {
   void _submitData() {
     final enteredText = _textController.text;
 
-    if (enteredText.isEmpty) {
-      return;
-    } else {
-      Navigator.push(
-          context, MaterialPageRoute(builder: (context) => Anger2()));
-    }
+    Navigator.push(context, MaterialPageRoute(builder: (context) => Anger2()));
   }
 
   @override
