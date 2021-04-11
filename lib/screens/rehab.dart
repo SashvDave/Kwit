@@ -137,10 +137,10 @@ class _MyHomePageState extends State<clinics> {
     double sizewidth(BuildContext context) => MediaQuery.of(context).size.width;
 
     return Scaffold(
-        resizeToAvoidBottomPadding: false,
+        resizeToAvoidBottomInset: false,
         appBar: AppBar(
           backgroundColor: const Color(0xFF235866),
-          title: Text('Kwit: Emotion Relief'),
+          title: Text('Mediquit: Emotion Relief'),
           actions: [
             Padding(
                 padding: EdgeInsets.only(right: 20.0),

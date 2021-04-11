@@ -16,7 +16,7 @@ class gameScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Kwit',
+      title: 'Mediquit',
       theme: ThemeData(
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
@@ -100,9 +100,7 @@ class Main extends State<game> {
                 finish: MazeItem('assets/finishflag.png', ImageType.asset),
                 onFinish: () => {
                       showDialog(
-                        barrierDismissible: false,
-                        context: buildContext,
-                        child: new Container(
+                        builder: (context) => new Container(
                           child: AlertDialog(
                             clipBehavior: Clip.antiAlias,
                             shape: RoundedRectangleBorder(
@@ -170,6 +168,8 @@ class Main extends State<game> {
                             ),
                           ),
                         ),
+                        barrierDismissible: false,
+                        context: buildContext,
                       )
                     }),
           ),

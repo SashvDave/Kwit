@@ -90,7 +90,7 @@ class _MyHomePageState extends State<MyHomePage> {
       backgroundColor: const Color(0xFF235866),
       appBar: AppBar(
         backgroundColor: const Color(0xFF235866),
-        title: Text('Kwit: Emotion Relief'),
+        title: Text('Mediquit: Emotion Relief'),
         actions: [
           Padding(
               padding: EdgeInsets.only(right: 20.0),
@@ -264,7 +264,7 @@ class _MyHomePageState extends State<MyHomePage> {
                                   subtitle: new Container(
                                     padding: EdgeInsets.only(top: 10),
                                     child: Text(
-                                      "If you're feeling stressed or experiencing anxiety, kwit is here for you! Working hand in hand with these therapies will allow you to relieve your stress in some extent and we hope you feel better after participating!",
+                                      "If you're feeling stressed or experiencing anxiety, Mediquit is here for you! Working hand in hand with these therapies will allow you to relieve your stress in some extent and we hope you feel better after participating!",
                                       style: TextStyle(
                                         color: const Color(0xFF242525),
                                       ),

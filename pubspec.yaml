@@ -33,7 +33,7 @@ dependencies:
   image_picker: ^0.6.7+21
   path_provider: ^1.6.24
   gallery_saver: ^2.0.1
-  flutter_svg:
+  flutter_svg: ^0.20.0-nullsafety.3
   google_sign_in: ^4.5.6
   firebase_auth: ^0.16.1
   firebase_database: ^3.1.6
