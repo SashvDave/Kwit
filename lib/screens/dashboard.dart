@@ -114,7 +114,7 @@ class _MyHomePageState extends State<MyHomePage> {
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.lightbulb),
-            label: "Shock Therapy",
+            label: "Trigger Prevention",
           )
         ],
         currentIndex: _selectedIndex,
