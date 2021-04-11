@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:kwit/screens/dashboard.dart';
+import 'package:kwit/screens/triggers.dart';
 import 'shockTherapy.dart';
 import 'login.dart';
 import 'package:url_launcher/url_launcher.dart' as UrlLauncher;
@@ -108,8 +109,7 @@ class _MyHomePageState extends State<clinics> {
         Navigator.push(context, MyCustomRoute(builder: (context) => Rehabs()));
       } else {
         _selectedIndex = 2;
-        Navigator.push(
-            context, MyCustomRoute(builder: (context) => ShockTherapy()));
+        Navigator.push(context, MyCustomRoute(builder: (context) => Trigger()));
       }
     });
   }
@@ -171,7 +171,7 @@ class _MyHomePageState extends State<clinics> {
             ),
             BottomNavigationBarItem(
               icon: Icon(Icons.lightbulb),
-              label: "Shock Therapy",
+              label: "Trigger Prevention",
             )
           ],
           currentIndex: _selectedIndex,

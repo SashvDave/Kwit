@@ -113,7 +113,7 @@ class ShockTherapy extends StatelessWidget {
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(70.0),
                     ),
-                    color: Colors.orange[200],
+                    color: const Color(0xFFABF6D4),
                     onPressed: () {
                       Navigator.push(context,
                           MaterialPageRoute(builder: (context) => MyApp()));
