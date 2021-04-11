@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/material.dart';
 import 'package:kwit/screens/dashboard.dart';
+import 'package:kwit/screens/intro1.dart';
 import 'package:kwit/screens/login.dart';
 
 void main() {
@@ -13,7 +14,7 @@ class App extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: "Mediquit",
-      home: MyApp(),
+      home: Intro1(),
     );
   }
 }
