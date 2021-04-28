@@ -207,7 +207,7 @@ class _Stress2State extends State<Stress2> {
                             Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                    builder: (context) => Stress2()));
+                                    builder: (context) => Stress1()));
                           },
                           icon: Icon(Icons.keyboard_arrow_left),
                           color: Colors.black,
